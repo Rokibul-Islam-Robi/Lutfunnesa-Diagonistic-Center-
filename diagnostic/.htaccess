@@ -1,0 +1,17 @@
+Options -Indexes
+RewriteEngine On
+
+# Block direct access to application internals and hidden files.
+RewriteRule (^|/)\.(?!well-known/) - [F,L]
+RewriteRule ^(?:src|bin|database|storage|scratch)(?:/|$) - [F,L,NC]
+
+# Serve the public application from this project subdirectory.
+RewriteRule ^assets/(.*)$ public/assets/$1 [L,NC]
+RewriteRule ^index\.php$ public/index.php [L,QSA,NC]
+RewriteRule ^api(?:/.*)?$ public/index.php [L,QSA,NC]
+RewriteRule ^$ public/index.php [L,QSA]
+
+# Send any other non-file/non-directory application route to the front controller.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ public/index.php [L,QSA]

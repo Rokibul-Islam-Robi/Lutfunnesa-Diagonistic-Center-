@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radiology & Imaging | Lutfor Neture Diabetes and Drignisc Center</title>
+  <meta name="description" content="Lutfor Neture Diabetes and Drignisc Center - modern diabetes and diagnostic care with experienced specialists, advanced laboratory and 24/7 emergency support.">
+  <link rel="icon" href="https://bdspecializedhospital.com/UI/FrontEnd/img/fav.png" type="image/png">
+
+  <!-- Vendor styles (local) -->
+  <link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Stop Tailwind from emitting .collapse { visibility: collapse },
+       which hides Bootstrap's .collapse.navbar-collapse menu -->
+  <script>
+    if (window.tailwind) {
+      tailwind.config = { corePlugins: { visibility: false } };
+    }
+  </script>
+  <!-- Apply saved theme before first paint (prevents color flash) -->
+  <script>
+    (function () {
+      try {
+        var styles = localStorage.getItem('selectedThemeStyles');
+        if (styles) {
+          styles = JSON.parse(styles);
+          var root = document.documentElement;
+          for (var key in styles) { root.style.setProperty(key, styles[key]); }
+        }
+      } catch (e) { /* ignore corrupted storage */ }
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/site-pages.css">
+</head>
+
+<body><a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <!-- ==========================================================
+       1. TOP INFORMATION BAR
+  =========================================================== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar__wrap">
+        <ul class="top-bar__social">
+          <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+          <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+
+        <ul class="top-bar__links">
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+
+        <div class="top-bar__meta">
+          <span class="top-bar__item"><i class="fa-solid fa-phone"></i> Hotline: <a href="tel:10666">10666</a></span>
+          <span class="top-bar__divider" aria-hidden="true"></span>
+          <span class="top-bar__item"><i class="fa-regular fa-envelope"></i> <a href="mailto:info@lutforneture.com">info@lutforneture.com</a></span>
+          <span class="top-bar__divider top-bar__divider--wide" aria-hidden="true"></span>
+          <span class="top-bar__item top-bar__item--wide"><i class="fa-regular fa-clock"></i> Open 24 Hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       2. MAIN NAVIGATION
+  =========================================================== -->
+  <nav class="navbar navbar-expand-lg site-navbar" id="siteNavbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="44" height="44" focusable="false">
+            <rect class="brand-mark__bg" x="1" y="1" width="46" height="46" rx="12"></rect>
+            <path class="brand-mark__pulse" d="M8 25.5h6.5l3-7.5 4.5 15 3.5-11 2.5 3.5H40" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path class="brand-mark__cross" d="M33.5 9.5v7M30 13h7" fill="none" stroke-width="3" stroke-linecap="round"></path>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>Lutfor Neture</strong>
+          <small>Diabetes and Drignisc Center</small>
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="./about_bshl.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./chairman-message.html">Message of Chairman</a></li>
+              <li><a class="dropdown-item" href="./managing-director-message.html">Message of Managing Director</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="./doctors.html">Find Doctors</a></li>
+
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle active" href="./departments.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+            <div class="dropdown-menu">
+              <div class="mega-grid">
+                <a class="dropdown-item" href="./department-neurology.html">Neurology</a>
+                <a class="dropdown-item" href="./department-oncology.html">Oncology</a>
+                <a class="dropdown-item" href="./department-nephrology.html">Nephrology</a>
+                <a class="dropdown-item" href="./department-urology.html">Urology</a>
+                <a class="dropdown-item" href="./department-radiology-imaging.html">Radiology &amp; Imaging</a>
+                <a class="dropdown-item" href="./department-orthopedics.html">Orthopedics</a>
+                <a class="dropdown-item" href="./department-pediatrics.html">Pediatrics</a>
+                <a class="dropdown-item" href="./department-icu-critical-care.html">ICU / Critical Care</a>
+                <a class="dropdown-item" href="./department-gastroenterology.html">Gastroenterology</a>
+                <a class="dropdown-item" href="./department-dermatology.html">Dermatology</a>
+                <a class="dropdown-item" href="./department-ent-head-neck.html">ENT &amp; Head Neck</a>
+                <a class="dropdown-item mega-grid__all" href="./departments.html"><i class="fa-solid fa-table-cells-large"></i> View All Departments</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="./news-media.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">News &amp; Media</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./gallery.html">BSH Gallery</a></li>
+              <li><a class="dropdown-item" href="./publications.html">BSH Publications</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="./career.html">Career</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-2"><a href="#appointment" class="btn btn--book"><i class="fa-regular fa-calendar-check me-2"></i>Appointment</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="mainContent">
+
+<section class="site-page-header">
+  <div class="container">
+    <div class="site-page-header__inner">
+      <h1>BSH Radiology & Imaging</h1>
+      <div class="site-breadcrumb"><a href="./index.html">Home</a><span>/</span><span>Radiology & Imaging</span></div>
+    </div>
+  </div>
+</section><section class="dept-hero"><div class="container"><div class="row align-items-center g-5">
+<div class="col-lg-8"><div class="dept-icon"><i class="fa-solid fa-x-ray"></i></div><span class="detail-label">BSH Departments</span><h2>Radiology & Imaging Department</h2>
+<p>The Department of Radiology & Imaging supports diagnosis through modern imaging services and specialist interpretation for a wide range of clinical needs.</p><div class="dept-meta"><span><i class="fa-solid fa-user-doctor me-1"></i> Specialist Doctors</span><span><i class="fa-solid fa-calendar-check me-1"></i> Appointment Available</span><span><i class="fa-solid fa-hospital me-1"></i> BSH PLC.</span></div></div>
+<div class="col-lg-4"><div class="detail-card text-center"><i class="fa-solid fa-x-ray" style="font-size:4rem;color:var(--primary-color)"></i><h3 class="mt-4">Radiology & Imaging</h3><p class="mb-0">Explore doctors and department information.</p></div></div>
+</div></div></section>
+<section class="detail-section"><div class="container"><div class="row g-4"><div class="col-lg-8"><div class="detail-card"><span class="detail-label">Department Overview</span><h2>Specialized Care at BSH</h2><p>The Department of Radiology & Imaging supports diagnosis through modern imaging services and specialist interpretation for a wide range of clinical needs. Our clinical team works with patients to understand their condition, provide appropriate investigations and guide them toward a suitable treatment plan.</p><p>For consultation, please use the appointment option or explore the Find Doctors page to view available specialists.</p></div></div><div class="col-lg-4"><div class="detail-card"><span class="detail-label">Quick Links</span><h3>Need More Help?</h3><p>Find a consultant, book an appointment or return to the complete department directory.</p><a class="text-link d-block mb-3" href="./doctors.html">Find Doctors <i class="fa-solid fa-arrow-right"></i></a><a class="text-link" href="./departments.html">View All Departments <i class="fa-solid fa-arrow-right"></i></a></div></div></div></div></section>
+</main>
+</main>
+
+  <!-- ==========================================================
+       12. FOOTER
+  =========================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-widget">
+            <a class="navbar-brand footer-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="44" height="44" focusable="false">
+                  <rect class="brand-mark__bg" x="1" y="1" width="46" height="46" rx="12"></rect>
+                  <path class="brand-mark__pulse" d="M8 25.5h6.5l3-7.5 4.5 15 3.5-11 2.5 3.5H40" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path class="brand-mark__cross" d="M33.5 9.5v7M30 13h7" fill="none" stroke-width="3" stroke-linecap="round"></path>
+                </svg>
+              </span>
+              <span class="brand-text">
+                <strong>Lutfor Neture</strong>
+                <small>Diabetes and Drignisc Center</small>
+              </span>
+            </a>
+            <p class="footer-widget__text">Lutfor Neture Diabetes and Drignisc Center has all the characteristics of a modern care facility — a wide range of services and specialists, equipment and technology, ambience and service quality.</p>
+            <p class="footer-hotline"><i class="fa-solid fa-phone"></i> Hotline: <a href="tel:10666">10666</a></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-widget">
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="footer-list">
+              <li><a href="#services">Services</a></li>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#appointment">Make Appointment</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Health Checkup</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-widget">
+            <h4 class="footer-title">Departments</h4>
+            <ul class="footer-list">
+              <li><a href="#departments">Cardiology</a></li>
+              <li><a href="#departments">Neurology</a></li>
+              <li><a href="#departments">Nephrology</a></li>
+              <li><a href="#departments">Radiology &amp; Imaging</a></li>
+              <li><a href="#departments">Pediatrics</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-widget">
+            <h4 class="footer-title">Get Us</h4>
+            <ul class="footer-contact">
+              <li><i class="fa-solid fa-location-dot"></i> House 45, Road 9, Dhanmondi, Dhaka-1209, Bangladesh</li>
+              <li><i class="fa-solid fa-phone"></i> <a href="tel:10666">10666</a>, +880 1710-000000</li>
+              <li><i class="fa-solid fa-envelope"></i> <a href="mailto:advice@lutforneture.com">advice@lutforneture.com</a>, <a href="mailto:info@lutforneture.com">info@lutforneture.com</a></li>
+            </ul>
+            <ul class="footer-social">
+              <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+              <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+              <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <div class="col-md-7">
+            <p class="footer-bottom__copy">Copyright &copy; 2026. All Rights Reserved. Lutfor Neture Diabetes and Drignisc Center.</p>
+            <ul class="footer-bottom__menu">
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Terms &amp; Condition</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5 text-md-end">
+            <p class="footer-bottom__dev">Developed by <strong>CognovaIT</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       SUCCESS TOAST (appointment)
+  =========================================================== -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer">
+    <div id="appointmentToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <span class="toast-icon"><i class="fa-solid fa-circle-check"></i></span>
+        <strong class="me-auto">Appointment Submitted</strong>
+        <small>Just now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Thank you! Your appointment request has been received. Our call center will contact you shortly to confirm your visit.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       DYNAMIC THEME SWITCHER
+  =========================================================== -->
+  <div class="theme-switcher" id="themeSwitcher">
+    <button class="theme-switcher__toggle" id="themeToggle" type="button" aria-expanded="false" aria-controls="themePanel">
+      <i class="fa-solid fa-palette"></i><span></span>
+    </button>
+
+    <div class="theme-switcher__panel" id="themePanel" role="group" aria-label="Theme color settings">
+      <h6>Theme Color</h6>
+      <div class="theme-swatches">
+        <button type="button" class="theme-swatch is-active" data-theme="green" style="--swatch: #087f5b" aria-label="Green theme"></button>
+        <button type="button" class="theme-swatch" data-theme="blue" style="--swatch: #1565c0" aria-label="Blue theme"></button>
+        <button type="button" class="theme-swatch" data-theme="purple" style="--swatch: #6a1b9a" aria-label="Purple theme"></button>
+        <button type="button" class="theme-swatch" data-theme="red" style="--swatch: #c62828" aria-label="Red theme"></button>
+        <button type="button" class="theme-swatch" data-theme="orange" style="--swatch: #ef6c00" aria-label="Orange theme"></button>
+      </div>
+      <label class="theme-custom" for="themeColorPicker">
+        <span>Custom color</span>
+        <input type="color" id="themeColorPicker" value="#087f5b">
+      </label>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts (local) -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cms_sync.js"></script>
+</body>
+
+</html>

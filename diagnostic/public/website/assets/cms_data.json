@@ -1,0 +1,160 @@
+{
+    "settings": {
+        "id": 1,
+        "site_title": "Lutfunnesa Diabetes & Diagnostic Center",
+        "tagline": "Modern Diabetes, Diagnostic & Multi-Speciality Hospital Care",
+        "hotline": "10666",
+        "phone": "+880 9611-000111",
+        "email": "info@lutfunnesadiagnostic.com",
+        "address": "Station Road, Farmgate, Dhaka-1215",
+        "updated_at": "2026-10-01 22:42:52",
+        "hero_title": "ADVANCED DIABETES & DIAGNOSTIC CARE FOR EVERY FAMILY",
+        "hero_subtitle": "Experienced specialists, modern laboratory technology and compassionate nursing — all under one roof, open 24 hours a day.",
+        "hero_bg_image": "assets/img/logo.png",
+        "hero_cta1_text": "BOOK AN APPOINTMENT",
+        "hero_cta1_link": "#appointment",
+        "hero_cta2_text": "FIND A DOCTOR",
+        "hero_cta2_link": "doctors.html",
+        "primary_color": "#059669",
+        "secondary_color": "#0f172a",
+        "button_color": "#059669",
+        "fb_link": "https://facebook.com",
+        "linkedin_link": "https://linkedin.com",
+        "youtube_link": "https://youtube.com",
+        "instagram_link": "https://instagram.com",
+        "quick_card1_title": "FIND CONSULTANT",
+        "quick_card2_title": "MAKE AN APPOINTMENT",
+        "quick_card3_title": "BLOOD BANK",
+        "quick_card4_title": "MRD SERVICES",
+        "about_title": "WELCOME TO LUTFUNNESA CENTER",
+        "about_text": "Lutfunnesa Diabetes & Diagnostic Center offers world-class diagnostic pathology, digital radiology, diabetology, and specialist consultation with 24/7 emergency care.",
+        "chairman_message": "Our mission is to provide accessible, high-precision healthcare and compassionate diagnostic support to every family.",
+        "md_message": "We are committed to continuous technology optimization, quality patient outcomes, and clinical excellence.",
+        "logo_url": "assets/img/logo.png"
+    },
+    "doctors": [
+        {
+            "id": 5,
+            "name": "Nusrat Hasan",
+            "qualification": "MBBS (DMC) , FCPS ( Medicine)",
+            "designation": "Senior Consultant",
+            "department": "Medicine",
+            "image_url": "assets/uploads/cms_1790868849_2254.jpg",
+            "experience": "10+ Years",
+            "active": 1,
+            "created_at": "2026-10-01 21:34:09"
+        },
+        {
+            "id": 4,
+            "name": "Dr. Sabera Tarafdar",
+            "qualification": "MBBS, FCPS (Pediatrics), DCH",
+            "designation": "Associate Professor Pediatric Care",
+            "department": "Pediatrics & Child Care",
+            "image_url": "https://images.unsplash.com/photo-1594824813566-88855ce78905?w=300",
+            "experience": "12+ Years",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        },
+        {
+            "id": 3,
+            "name": "Prof. Dr. Abu Saleh Ahmed",
+            "qualification": "MBBS, MS (Nephrology), FRCP",
+            "designation": "Professor & Senior Specialist",
+            "department": "Nephrology & Kidney Care",
+            "image_url": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300",
+            "experience": "18+ Years",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        },
+        {
+            "id": 2,
+            "name": "Prof. Dr. Hasib Rahman",
+            "qualification": "MBBS, MD (Cardiology), FACC",
+            "designation": "Chief Consultant Cardiologist",
+            "department": "Cardiology & Heart Care",
+            "image_url": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=300",
+            "experience": "20+ Years",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        },
+        {
+            "id": 1,
+            "name": "Dr. A K M Kamrul Huda",
+            "qualification": "MBBS, FCPS (Internal Medicine), MD (Diabetology)",
+            "designation": "Senior Consultant & Head of Diabetology",
+            "department": "Endocrinology & Diabetes",
+            "image_url": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300",
+            "experience": "15+ Years",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        }
+    ],
+    "services": [
+        {
+            "id": 4,
+            "title": "Emergency Critical Care & ICU",
+            "icon_class": "fa-solid fa-heart-pulse",
+            "description": "24 Hours trauma emergency desk with central oxygen, multipara monitors and ICU beds.",
+            "category": "Critical Care Services",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        },
+        {
+            "id": 3,
+            "title": "24/7 Digital Radiology & PACS",
+            "icon_class": "fa-solid fa-x-ray",
+            "description": "High precision MRI 3.0T, 128-Slice CT Scan, Digital X-Ray & USG 4D color doppler.",
+            "category": "Radiology & Imaging",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        },
+        {
+            "id": 2,
+            "title": "Advanced Automated Laboratory LIS",
+            "icon_class": "fa-solid fa-flask-vial",
+            "description": "Ultra-modern biochemistry, hematology, molecular biology & histopathology labs.",
+            "category": "Diagnostic Pathology",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        },
+        {
+            "id": 1,
+            "title": "Comprehensive Diabetes Screening",
+            "icon_class": "fa-solid fa-stethoscope",
+            "description": "360 degree diabetes risk profiling, HbA1c testing and continuous glucose tracking.",
+            "category": "Diabetes & Endocrinology",
+            "active": 1,
+            "created_at": "2026-09-30 21:58:19"
+        }
+    ],
+    "gallery": [
+        {
+            "id": 4,
+            "title": "Doctor Consultation Chamber Desk",
+            "category": "OPD Chamber",
+            "image_url": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600",
+            "created_at": "2026-09-30 22:12:16"
+        },
+        {
+            "id": 3,
+            "title": "Advanced PACS Radiology Suite",
+            "category": "Radiology",
+            "image_url": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600",
+            "created_at": "2026-09-30 22:12:16"
+        },
+        {
+            "id": 2,
+            "title": "24/7 Emergency ICU Unit",
+            "category": "Critical Care",
+            "image_url": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600",
+            "created_at": "2026-09-30 22:12:16"
+        },
+        {
+            "id": 1,
+            "title": "Modern Diagnostic Laboratory",
+            "category": "Laboratory",
+            "image_url": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600",
+            "created_at": "2026-09-30 22:12:16"
+        }
+    ]
+}

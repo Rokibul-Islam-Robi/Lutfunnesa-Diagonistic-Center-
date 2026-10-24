@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.2"
+    }
+  },
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/diagnostic/public/assets/$1"
+    },
+    {
+      "src": "/website/(.*)",
+      "dest": "/diagnostic/public/website/$1"
+    },
+    {
+      "src": "/hospital-website/(.*)",
+      "dest": "/hospital-website/hospital-website/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/diagnostic/public/favicon.ico"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ]
+}

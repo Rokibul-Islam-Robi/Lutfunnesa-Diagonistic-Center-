@@ -1,0 +1,31 @@
+# Ignore Environment Files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Ignore Composer Vendor (Keep frontend assets)
+/vendor/
+/diagnostic/vendor/
+
+# Ignore Storage Logs & Backups
+storage/logs/*
+!storage/logs/.gitkeep
+storage/backups/*
+!storage/backups/.gitkeep
+diagnostic/storage/logs/*
+!diagnostic/storage/logs/.gitkeep
+diagnostic/storage/backups/*
+!diagnostic/storage/backups/.gitkeep
+
+# Ignore Local Temporary Scratch & Debug Files
+/scratch/
+/diagnostic/scratch/
+
+# Ignore OS & IDE Cache
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.log

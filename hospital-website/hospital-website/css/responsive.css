@@ -1,0 +1,576 @@
+/* ==========================================================
+   RESPONSIVE STYLESHEET
+   Breakpoints: 1440 / 1200 / 992 / 768 / 576 / 375 / 320
+   Grid column behavior is handled by Bootstrap classes —
+   this file covers spacing, typography and layout tweaks.
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   1440px+ (large desktop refinements)
+   ---------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .hero .carousel-item {
+    height: 640px;
+  }
+
+  .hero__caption {
+    max-width: 700px;
+  }
+}
+
+/* ----------------------------------------------------------
+   ≤1200px (standard desktop / small desktop)
+   ---------------------------------------------------------- */
+@media (max-width: 1200px) {
+  :root {
+    --section-pad: 66px;
+  }
+
+  .hero .carousel-item {
+    height: 540px;
+  }
+
+  .navbar .nav-link {
+    padding: 30px 10px;
+    font-size: 0.76rem;
+    letter-spacing: 0.8px;
+  }
+
+  .navbar .nav-link::after {
+    left: 10px;
+    right: 10px;
+  }
+
+  .brand-text strong {
+    font-size: 1.05rem;
+  }
+
+  .brand-text small {
+    font-size: 0.64rem;
+    letter-spacing: 1.2px;
+  }
+}
+
+/* ----------------------------------------------------------
+   ≤991px (tablet landscape — navbar collapses)
+   ---------------------------------------------------------- */
+@media (max-width: 991px) {
+  :root {
+    --section-pad: 58px;
+    --navbar-height: 68px;
+  }
+
+  /* --- Navbar (mobile panel) --- */
+  .navbar-brand {
+    margin-right: auto;
+    padding: 10px 0;
+  }
+
+  .site-navbar .navbar-collapse {
+    background-color: var(--primary-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    margin-top: 10px;
+    padding: 8px 0 18px;
+    max-height: calc(100vh - var(--navbar-height) - 20px);
+    overflow-y: auto;
+  }
+
+  .navbar-nav {
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+
+  .navbar .nav-link {
+    padding: 13px 4px;
+    font-size: 0.84rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .navbar .nav-link::after {
+    display: none;
+  }
+
+  .navbar .nav-link:hover,
+  .navbar .nav-link:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Dropdowns open inline inside the mobile panel */
+  .dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    transform: none !important;
+    box-shadow: none;
+    border-top: 0;
+    background-color: rgba(0, 0, 0, 0.14);
+    border-radius: 0;
+    padding: 6px 0;
+    margin: 0;
+  }
+
+  .dropdown-mega .dropdown-menu {
+    width: 100% !important;
+    padding: 10px 12px;
+  }
+
+  .mega-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px 10px;
+  }
+
+  .dropdown-item {
+    color: rgba(255, 255, 255, 0.92);
+    padding: 10px 14px;
+  }
+
+  .dropdown-item::before {
+    background-color: var(--accent-color);
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+
+  .mega-grid__all {
+    border-top-color: rgba(255, 255, 255, 0.2);
+    color: var(--accent-color) !important;
+  }
+
+  .navbar-nav .nav-item .btn--book {
+    margin-top: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  /* --- Hero --- */
+  .hero .carousel-item {
+    height: 470px;
+  }
+
+  .hero .carousel-control-prev,
+  .hero .carousel-control-next {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero .carousel-control-prev { left: 14px; }
+  .hero .carousel-control-next { right: 14px; }
+
+  /* --- Section head button alignment --- */
+  .section-head .text-lg-end {
+    text-align: left !important;
+  }
+
+  .section-head .btn {
+    margin-top: 18px;
+  }
+}
+
+/* ----------------------------------------------------------
+   ≤768px (tablet portrait)
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 50px;
+  }
+
+  /* --- Top bar --- */
+  .top-bar__item--wide,
+  .top-bar__divider--wide {
+    display: none;
+  }
+
+  .top-bar__meta {
+    gap: 6px 12px;
+  }
+
+  /* --- Hero --- */
+  .hero .carousel-item {
+    height: 430px;
+  }
+
+  .hero__caption p {
+    margin-bottom: 24px;
+  }
+
+  .hero .carousel-indicators {
+    right: 50%;
+    transform: translateX(50%);
+    margin-right: 0;
+    bottom: 16px;
+  }
+
+  /* --- Welcome --- */
+  .welcome__badge {
+    left: 14px;
+    bottom: -22px;
+    padding: 13px 18px;
+  }
+
+  .welcome__badge i {
+    font-size: 1.4rem;
+  }
+
+  .welcome__body {
+    margin-top: 22px;
+  }
+
+  /* --- Appointment --- */
+  .appointment__panel {
+    padding: 34px 26px;
+  }
+
+  .appointment__form-card {
+    padding: 30px 24px;
+  }
+
+  /* --- Stats --- */
+  .stats {
+    padding: 48px 0;
+  }
+
+  .stats__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* --- Section head center variant spacing --- */
+  .section-head--center {
+    margin-bottom: 34px;
+  }
+
+  /* --- Footer --- */
+  .site-footer {
+    padding-top: 46px;
+  }
+
+  .footer-bottom {
+    margin-top: 38px;
+  }
+  .preview-wrapper {
+    top: 30px;
+  }
+  .antialiased-card-grid .card-item div svg{
+    width: 3rem;
+  }
+  .card-item {
+    min-height: 150px;
+  }
+}
+
+/* ----------------------------------------------------------
+   ≤576px (large mobile)
+   ---------------------------------------------------------- */
+@media (max-width: 576px) {
+  :root {
+    --section-pad: 44px;
+  }
+
+  body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* --- Top bar --- */
+  .top-bar {
+    padding: 7px 0;
+    font-size: 0.78rem;
+  }
+
+  .top-bar__wrap {
+    justify-content: center;
+    gap: 4px 12px;
+  }
+
+  .top-bar__meta {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .top-bar__links li + li::before {
+    margin: 0 7px;
+  }
+
+  .top-bar__divider {
+    display: none;
+  }
+
+  /* --- Hero --- */
+  .hero .carousel-item {
+    height: 400px;
+  }
+
+  .hero__overlay,
+  .hero__overlay--strong {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 20, 16, 0.6) 0%,
+      rgba(10, 20, 16, 0.86) 100%
+    );
+  }
+
+  .hero__caption h1 {
+    font-size: clamp(1.5rem, 6.5vw, 1.9rem);
+    margin-bottom: 14px;
+  }
+
+  .hero__caption p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 12px;
+    letter-spacing: 2.5px;
+    font-size: 0.72rem;
+  }
+
+  .hero .carousel-control-prev,
+  .hero .carousel-control-next {
+    display: none;
+  }
+
+  /* --- Quick access --- */
+  .quick-access {
+    padding: 34px 0;
+  }
+
+  .quick-card {
+    padding: 18px 16px;
+    gap: 13px;
+  }
+
+  .quick-card__icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .quick-card__icon img {
+    width: 29px;
+    height: 29px;
+  }
+
+  /* --- Welcome --- */
+  .welcome__badge {
+    position: static;
+    display: inline-flex;
+    margin-top: 16px;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* --- Appointment --- */
+  .appointment__panel {
+    padding: 28px 20px;
+  }
+
+  .appointment__form-card {
+    padding: 24px 18px;
+  }
+
+  /* --- Stats --- */
+  .stats {
+    padding: 40px 0;
+  }
+
+  .stats__label {
+    font-size: 0.78rem;
+    letter-spacing: 1.2px;
+  }
+
+  .stats__icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 8px;
+  }
+
+  /* --- Footer --- */
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-bottom__copy {
+    display: block;
+    margin: 0 0 6px;
+  }
+
+  .footer-bottom__menu {
+    justify-content: center;
+  }
+
+  .footer-bottom__dev {
+    margin-top: 8px;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+  }
+
+  /* --- Theme switcher --- */
+  .theme-switcher__toggle {
+    padding: 12px 8px;
+    font-size: 0.7rem;
+  }
+
+  .theme-switcher__panel {
+    width: min(230px, calc(100vw - 58px));
+  }
+
+  /* --- Toast --- */
+  .toast-container {
+    max-width: calc(100vw - 24px);
+    width: 100%;
+  }
+  .theme-switcher {
+    right: -44%;
+  }
+}
+
+/* ----------------------------------------------------------
+   ≤420px (small mobile)
+   ---------------------------------------------------------- */
+@media (max-width: 420px) {
+  /* Hide the top-bar email, keep hotline */
+  .top-bar__item:nth-child(3),
+  .top-bar__links {
+    display: none;
+  }
+
+  .brand-text small {
+    display: none;
+  }
+
+  .brand-text strong {
+    font-size: 0.98rem;
+  }
+
+  .brand-mark svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mega-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions {
+    gap: 10px;
+  }
+
+  .hero__actions .btn {
+    padding: 11px 18px;
+    font-size: 0.74rem;
+  }
+
+  .dept-card {
+    padding: 28px 20px 26px;
+  }
+   .theme-switcher {
+    right: -44%;
+  }
+}
+
+/* ----------------------------------------------------------
+   ≤375px (iPhone SE class)
+   ---------------------------------------------------------- */
+@media (max-width: 375px) {
+  .hero .carousel-item {
+    height: 370px;
+  }
+
+  .hero__caption h1 {
+    font-size: 1.42rem;
+  }
+
+  .hero__caption p {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .quick-card__body h3 {
+    font-size: 0.9rem;
+  }
+
+  .quick-card__body p {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    padding: 11px 20px;
+    font-size: 0.76rem;
+  }
+
+  .appointment__contacts a,
+  .appointment__contacts div {
+    font-size: 0.87rem;
+    word-break: break-word;
+  }
+
+  .footer-contact li {
+    font-size: 0.86rem;
+    word-break: break-word;
+  }
+}
+
+/* ----------------------------------------------------------
+   320px (smallest supported)
+   ---------------------------------------------------------- */
+@media (max-width: 320px) {
+  .top-bar__social a {
+    width: 27px;
+    height: 27px;
+    font-size: 0.72rem;
+  }
+
+  .hero .carousel-item {
+    height: 350px;
+  }
+
+  .hero__caption h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .quick-card {
+    flex-wrap: wrap;
+  }
+
+  .quick-card__body {
+    flex: 1 1 160px;
+  }
+
+  .stats__num {
+    font-size: 1.7rem;
+  }
+
+  .theme-switcher__toggle span {
+    display: none;
+  }
+
+  .theme-switcher__toggle {
+    writing-mode: horizontal-tb;
+    padding: 10px;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  }
+
+  .theme-switcher__toggle i {
+    transform: none;
+  }
+
+  .footer-bottom__menu {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+}

@@ -1,0 +1,1 @@
+document.getElementById('contactForm')?.addEventListener('submit',function(e){e.preventDefault();if(!this.checkValidity()){this.classList.add('was-validated');return;}document.getElementById('contactSuccess').classList.remove('d-none');this.reset();});

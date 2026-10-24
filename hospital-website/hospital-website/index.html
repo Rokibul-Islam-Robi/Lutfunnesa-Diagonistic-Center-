@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lutfor Neture Diabetes and Drignisc Center | Home</title>
+  <meta name="description" content="Lutfor Neture Diabetes and Drignisc Center - modern diabetes and diagnostic care with experienced specialists, advanced laboratory and 24/7 emergency support.">
+  <link rel="icon" href="https://bdspecializedhospital.com/UI/FrontEnd/img/fav.png" type="image/png">
+
+  <!-- Vendor styles (local) -->
+  <link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Stop Tailwind from emitting .collapse { visibility: collapse },
+       which hides Bootstrap's .collapse.navbar-collapse menu -->
+  <script>
+    if (window.tailwind) {
+      tailwind.config = { corePlugins: { visibility: false } };
+    }
+  </script>
+  <!-- Apply saved theme before first paint (prevents color flash) -->
+  <script>
+    (function () {
+      try {
+        var styles = localStorage.getItem('selectedThemeStyles');
+        if (styles) {
+          styles = JSON.parse(styles);
+          var root = document.documentElement;
+          for (var key in styles) { root.style.setProperty(key, styles[key]); }
+        }
+      } catch (e) { /* ignore corrupted storage */ }
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <!-- ==========================================================
+       1. TOP INFORMATION BAR
+  =========================================================== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar__wrap">
+        <ul class="top-bar__social">
+          <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+          <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+
+        <ul class="top-bar__links">
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+
+        <div class="top-bar__meta">
+          <span class="top-bar__item"><i class="fa-solid fa-phone"></i> Hotline: <a href="tel:10666">10666</a></span>
+          <span class="top-bar__divider" aria-hidden="true"></span>
+          <span class="top-bar__item"><i class="fa-regular fa-envelope"></i> <a href="mailto:info@lutforneture.com">info@lutforneture.com</a></span>
+          <span class="top-bar__divider top-bar__divider--wide" aria-hidden="true"></span>
+          <span class="top-bar__item top-bar__item--wide"><i class="fa-regular fa-clock"></i> Open 24 Hours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       2. MAIN NAVIGATION
+  =========================================================== -->
+  <nav class="navbar navbar-expand-lg site-navbar" id="siteNavbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="44" height="44" focusable="false">
+            <rect class="brand-mark__bg" x="1" y="1" width="46" height="46" rx="12"></rect>
+            <path class="brand-mark__pulse" d="M8 25.5h6.5l3-7.5 4.5 15 3.5-11 2.5 3.5H40" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path class="brand-mark__cross" d="M33.5 9.5v7M30 13h7" fill="none" stroke-width="3" stroke-linecap="round"></path>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>Lutfor Neture</strong>
+          <small>Diabetes and Drignisc Center</small>
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="./index.html">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="./about_bshl.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./chairman-message.html">Message of Chairman</a></li>
+              <li><a class="dropdown-item" href="./managing-director-message.html">Message of Managing Director</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="./doctors.html">Find Doctors</a></li>
+
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle" href="./departments.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+            <div class="dropdown-menu">
+              <div class="mega-grid">
+                <a class="dropdown-item" href="./department-neurology.html">Neurology</a>
+                <a class="dropdown-item" href="./department-oncology.html">Oncology</a>
+                <a class="dropdown-item" href="./department-nephrology.html">Nephrology</a>
+                <a class="dropdown-item" href="./department-urology.html">Urology</a>
+                <a class="dropdown-item" href="./department-radiology-imaging.html">Radiology &amp; Imaging</a>
+                <a class="dropdown-item" href="./department-orthopedics.html">Orthopedics</a>
+                <a class="dropdown-item" href="./department-pediatrics.html">Pediatrics</a>
+                <a class="dropdown-item" href="./department-icu-critical-care.html">ICU / Critical Care</a>
+                <a class="dropdown-item" href="./department-gastroenterology.html">Gastroenterology</a>
+                <a class="dropdown-item" href="./department-dermatology.html">Dermatology</a>
+                <a class="dropdown-item" href="./department-ent-head-neck.html">ENT &amp; Head Neck</a>
+                <a class="dropdown-item mega-grid__all" href="./departments.html"><i class="fa-solid fa-table-cells-large"></i> View All Departments</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="./news-media.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">News &amp; Media</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./gallery.html">BSH Gallery</a></li>
+              <li><a class="dropdown-item" href="./publications.html">BSH Publications</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="./career.html">Career</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-2"><a href="#appointment" class="btn btn--book"><i class="fa-regular fa-calendar-check me-2"></i>Appointment</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================
+         3. HERO SLIDER
+    =========================================================== -->
+    <section class="hero" id="home" aria-label="Featured">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <img class="hero__img" src="https://bdspecializedhospital.com/storage/app/public/media/1613276934.jpg" alt="Modern hospital building exterior">
+            <div class="hero__overlay"></div>
+            <div class="container hero__content">
+              <div class="hero__caption">
+                <span class="hero__eyebrow">Welcome to Lutfor Neture</span>
+                <h1>Advanced Diabetes &amp; Diagnostic Care for Every Family</h1>
+                <p>Experienced specialists, modern laboratory technology and compassionate nursing — all under one roof, open 24 hours a day.</p>
+                <div class="hero__actions">
+                  <a href="#appointment" class="btn btn--primary">Book an Appointment</a>
+                  <a href="#doctors" class="btn btn--ghost">Find a Doctor</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <img class="hero__img" src="https://bdspecializedhospital.com/UI/FrontEnd/img/bg001.jpg" alt="Stethoscope and heartbeat monitor">
+            <div class="hero__overlay"></div>
+            <div class="container hero__content">
+              <div class="hero__caption">
+                <span class="hero__eyebrow">Precision Diagnostics</span>
+                <h1>Accurate Reports You Can Trust</h1>
+                <p>From routine blood tests to advanced imaging, our diagnostic department delivers fast, reliable results for confident decisions.</p>
+                <div class="hero__actions">
+                  <a href="#services" class="btn btn--primary">Explore Services</a>
+                  <a href="#appointment" class="btn btn--ghost">Book a Test</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <img class="hero__img hero__img--right" src="https://bdspecializedhospital.com/storage/app/public/media/1662052691.jpg" alt="Consultant doctor in white coat">
+            <div class="hero__overlay hero__overlay--strong"></div>
+            <div class="container hero__content">
+              <div class="hero__caption">
+                <span class="hero__eyebrow">Team of Specialists</span>
+                <h1>Experienced Doctors, Compassionate Treatment</h1>
+                <p>Consult with senior specialists in diabetes, endocrinology, cardiology, nephrology and more — in a warm, patient-first environment.</p>
+                <div class="hero__actions">
+                  <a href="#doctors" class="btn btn--primary">Meet Our Doctors</a>
+                  <a href="#departments" class="btn btn--ghost">Our Departments</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous slide">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next slide">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         4. QUICK ACCESS SERVICE CARDS
+    =========================================================== -->
+
+  <div class="antialiased">
+    <div class="preview-wrapper">
+        <div class="w-full max-w-6xl mx-auto">
+            <div class="card-grid flex flex-col md:flex-row items-stretch justify-center w-full antialiased-card-grid">
+
+                <div class="card-1 card-item flex-1 text-center group">
+                    <div class="mb-3 transition-transform duration-300 group-hover:scale-110">
+                        <!-- ID Card Icon -->
+                        <svg class="w-20 h-20 mx-auto fill-current text-teal-950 opacity-80 group-hover:opacity-100 transition-opacity" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="12" y="14" width="40" height="42" rx="4" fill="none" stroke="currentColor" stroke-width="4"/>
+                            <rect x="24" y="8" width="16" height="8" rx="2" fill="currentColor"/>
+                            <circle cx="32" cy="28" r="7" fill="currentColor"/>
+                            <path d="M22 46c0-5.5 4.5-8 10-8s10 2.5 10 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="32" y1="38" x2="32" y2="44" stroke="#00A88F" stroke-width="2"/>
+                            <line x1="29" y1="41" x2="35" y2="41" stroke="#00A88F" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-extrabold tracking-wide uppercase px-2 text-white">
+                        Find Consultant
+                    </h3>
+                </div>
+
+                <div class="card-2 card-item flex-1 text-center group">
+                    <div class="mb-3 transition-transform duration-300 group-hover:scale-110">
+                        <!-- Nurse / Desk Appointment Icon -->
+                        <svg class="w-20 h-20 mx-auto fill-current text-teal-950 opacity-80 group-hover:opacity-100 transition-opacity" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Nurse Cap & Head -->
+                            <circle cx="26" cy="22" r="6" fill="currentColor"/>
+                            <path d="M18 16c2-4 14-4 16 0L18 16z" fill="currentColor"/>
+                            <path d="M16 36c0-5 4.5-8 10-8s10 3 10 8" fill="currentColor"/>
+                            <!-- Desk -->
+                            <rect x="10" y="36" width="32" height="4" fill="currentColor"/>
+                            <!-- Calendar -->
+                            <rect x="44" y="14" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="3"/>
+                            <line x1="44" y1="19" x2="60" y2="19" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="48" cy="23" r="1" fill="currentColor"/>
+                            <circle cx="52" cy="23" r="1" fill="currentColor"/>
+                            <circle cx="56" cy="23" r="1" fill="currentColor"/>
+                            <circle cx="48" cy="27" r="1" fill="currentColor"/>
+                            <circle cx="52" cy="27" r="1" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-extrabold tracking-wide uppercase px-2 text-white">
+                        Make An Appointment
+                    </h3>
+                </div>
+
+                <div class="card-3 card-item flex-1 text-center group">
+                    <div class="mb-3 transition-transform duration-300 group-hover:scale-110">
+                        <!-- Blood Bag / IV Drip Icon -->
+                        <svg class="w-20 h-20 mx-auto fill-current text-teal-950 opacity-80 group-hover:opacity-100 transition-opacity" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Hook/Hanger -->
+                            <path d="M32 6 v6" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <!-- Bag Body -->
+                            <rect x="20" y="12" width="24" height="32" rx="4" fill="none" stroke="currentColor" stroke-width="4"/>
+                            <rect x="24" y="20" width="16" height="16" rx="2" fill="currentColor" opacity="0.6"/>
+                            <!-- Cross Symbol -->
+                            <path d="M32 24 v8 M28 28 h8" stroke="#00A88F" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Tube -->
+                            <path d="M32 44 v10 M32 54 h-4" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-extrabold tracking-wide uppercase px-2 text-white">
+                        Blood Bank
+                    </h3>
+                </div>
+
+                <div class="card-4 card-item flex-1 text-center group">
+                    <div class="mb-3 transition-transform duration-300 group-hover:scale-110">
+                        <!-- Medical Caduceus / Star of Life Icon -->
+                        <svg class="w-20 h-20 mx-auto fill-current text-teal-950 opacity-80 group-hover:opacity-100 transition-opacity" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Star of Life Base -->
+                            <path d="M32 6 L32 58 M10 19 L54 45 M10 45 L54 19" stroke="currentColor" stroke-width="8" stroke-linecap="square"/>
+                            <!-- Book / Foundation Base -->
+                            <path d="M16 44 L32 38 L48 44 L32 50 Z" fill="currentColor"/>
+                            <!-- Snake / Rod Center -->
+                            <path d="M32 14 Q 26 22, 32 30 Q 38 38, 32 46" fill="none" stroke="#009881" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-extrabold tracking-wide uppercase px-2 text-white">
+                        MRD Services
+                    </h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- ==========================================================
+         5. WELCOME / ABOUT HOSPITAL
+    =========================================================== -->
+
+      <section class="section welcome" id="about">
+        <div class="container">
+          <div class="row align-items-center g-4 g-lg-5">
+
+            <div class="col-lg-6">
+              <div class="welcome__media reveal">
+                <img src="images/welcome/welcome.jpg"
+                    alt="Doctor providing care" class="welcome__img">
+                <div class="welcome__badge">
+                  <i class="fa-solid fa-clock"></i>
+                  <div>
+                    <strong>24/7</strong>
+                    <span>Emergency &amp; Lab Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="welcome__body reveal">
+                <span class="section-eyebrow">About Us</span>
+                <h2 class="section-title">Welcome to Lutfor Neture Diabetes and Drignisc Center</h2>
+                <span class="section-rule" aria-hidden="true"></span>
+
+                <p>Lutfor Neture Diabetes and Drignisc Center brings together the characteristics of a world-class care facility — a wide range of specialists, modern equipment and technology, a calm ambience and dependable service quality.</p>
+                <p>Our center is built on the synergy of medical expertise and advances in digital health through paperless medical records. Skilled nurses, technologists and administrators work together to make every visit simple, safe and comfortable.</p>
+
+                <div class="welcome__mv row g-3 g-sm-4 mt-1">
+                  <div class="col-sm-6">
+                    <div class="mv-card">
+                      <span class="mv-card__icon"><i class="fa-solid fa-bullseye"></i></span>
+                      <h3>Our Mission</h3>
+                      <p>Excellent and cost-effective healthcare for our patients, continuing development for our staff, and partnership in promoting health for our nation.</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mv-card">
+                      <span class="mv-card__icon"><i class="fa-solid fa-eye"></i></span>
+                      <h3>Our Vision</h3>
+                      <p>To be a renowned organization at the leading edge of medicine, providing quality healthcare to meet our nation's aspirations.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#" class="btn btn--primary mt-4">Read More</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    <!-- ==========================================================
+         6. DEPARTMENTS SECTION
+    =========================================================== -->
+    <section class="section section--alt departments" id="departments">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="row align-items-end g-3">
+            <div class="col-lg-8">
+              <span class="section-eyebrow">What We Treat</span>
+              <h2 class="section-title">BSH Departments</h2>
+              <span class="section-rule" aria-hidden="true"></span>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="#" class="btn btn--primary">View All Departments</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-slider" data-slider data-interval="3000">
+          <div class="card-slider__viewport">
+            <div class="card-slider__track">
+              <!-- Department card -->
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-heart-pulse"></i></span>
+                  <h3>Cardiology</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Diagnosis and management of heart conditions with cath lab, ECG, echo and 24-hour cardiac emergency support.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-brain"></i></span>
+                  <h3>Neurology</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Specialized care for stroke, epilepsy, migraine and nerve disorders with modern neuro-diagnostic facilities.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-ribbon"></i></span>
+                  <h3>Oncology</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Integrated cancer care combining medical oncology, surgical oncology and supportive services in a calm environment.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-droplet"></i></span>
+                  <h3>Nephrology</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Complete kidney care including dialysis, renal medicine and pre &amp; post transplant follow-up support.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-prescription-bottle-medical"></i></span>
+                  <h3>Urology</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>State-of-the-art urology care for kidney stones, prostate and urinary tract conditions with minimally invasive surgery.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-x-ray"></i></span>
+                  <h3>Radiology &amp; Imaging</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Digital X-ray, ultrasound, CT and MRI interpreted by senior radiologists for fast, accurate reporting.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-bone"></i></span>
+                  <h3>Orthopedics</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Joint replacement, arthroscopy and trauma care that helps patients return to an active, pain-free life.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-baby"></i></span>
+                  <h3>Pediatrics</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Child-friendly pediatric and neonatology services covering routine checkups, growth and childhood illnesses.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="dept-card">
+                  <span class="dept-card__icon"><i class="fa-solid fa-bed-pulse"></i></span>
+                  <h3>ICU / Critical Care</h3>
+                  <span class="dept-card__line" aria-hidden="true"></span>
+                  <p>Fully monitored intensive care units staffed around the clock by trained intensivists and critical care nurses.</p>
+                  <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+              </div>
+            </div>
+          </div>
+          <button class="card-slider__btn card-slider__btn--prev" type="button" aria-label="Previous departments">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="card-slider__btn card-slider__btn--next" type="button" aria-label="Next departments">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         7. APPOINTMENT SECTION
+    =========================================================== -->
+    <section class="section appointment" id="appointment">
+      <div class="container">
+        <div class="row g-4">
+
+          <div class="col-lg-5">
+            <div class="appointment__panel reveal">
+              <span class="section-eyebrow section-eyebrow--light">Get in Touch</span>
+              <h2 class="appointment__title">Book an Appointment</h2>
+              <span class="section-rule section-rule--light" aria-hidden="true"></span>
+              <p class="appointment__lead">Choose your department and preferred doctor — our call center will confirm your visit by SMS or phone call.</p>
+
+              <ul class="appointment__contacts">
+                <li>
+                  <i class="fa-solid fa-phone"></i>
+                  <div><span>Hotline</span><a href="tel:10666">10666</a></div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope"></i>
+                  <div><span>Email</span><a href="mailto:info@lutforneture.com">info@lutforneture.com</a></div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div><span>Address</span>House 45, Road 9, Dhanmondi, Dhaka-1209</div>
+                </li>
+                <li>
+                  <i class="fa-regular fa-clock"></i>
+                  <div><span>Opening Hours</span>Open 24 Hours, 7 Days a Week</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="appointment__form-card reveal">
+              <form id="appointmentForm" class="row g-3" novalidate>
+
+                <div class="col-md-6">
+                  <label for="apptDepartment" class="form-label">Department <span class="req">*</span></label>
+                  <select class="form-select" id="apptDepartment" required>
+                    <option value="">Select a Department</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="oncology">Oncology</option>
+                    <option value="nephrology">Nephrology</option>
+                    <option value="urology">Urology</option>
+                    <option value="radiology">Radiology &amp; Imaging</option>
+                    <option value="orthopedics">Orthopedics</option>
+                    <option value="pediatrics">Pediatrics</option>
+                    <option value="icu">ICU / Critical Care</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a department.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="apptDoctor" class="form-label">Doctor <span class="req">*</span></label>
+                  <select class="form-select" id="apptDoctor" required>
+                    <option value="">Select a Doctor</option>
+                    <option value="1">Dr. A K M Kamrul Huda</option>
+                    <option value="2">Prof. Dr. Hasib Rahman</option>
+                    <option value="3">Prof. Dr. Abu Saleh Ahmed</option>
+                    <option value="4">Dr. Sabera Tarafdar</option>
+                    <option value="5">Dr. Syed Ariful Islam</option>
+                    <option value="6">Prof. Dr. S. A. Khan</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a doctor.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="apptName" class="form-label">Patient Name <span class="req">*</span></label>
+                  <input type="text" class="form-control" id="apptName" placeholder="Full name" required>
+                  <div class="invalid-feedback">Please enter the patient's name.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="apptPhone" class="form-label">Phone Number <span class="req">*</span></label>
+                  <input type="tel" class="form-control" id="apptPhone" placeholder="e.g. 01712 345678" required>
+                  <div class="invalid-feedback">Please enter a valid phone number.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="apptEmail" class="form-label">Email <span class="req">*</span></label>
+                  <input type="email" class="form-control" id="apptEmail" placeholder="you@example.com" required>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="apptDate" class="form-label">Appointment Date <span class="req">*</span></label>
+                  <input type="date" class="form-control" id="apptDate" required>
+                  <div class="invalid-feedback">Please choose today or a future date.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="apptMessage" class="form-label">Message</label>
+                  <textarea class="form-control" id="apptMessage" rows="3" placeholder="Describe your concern (optional)"></textarea>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn btn--primary btn--block">
+                    <i class="fa-regular fa-paper-plane me-2"></i>Submit Appointment
+                  </button>
+                  <p class="appointment__note"><i class="fa-solid fa-circle-info me-1"></i> This is a demo form — no data is sent to a server.</p>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         8. DOCTORS SECTION
+    =========================================================== -->
+    <section class="section" id="doctors">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="section-eyebrow">Specialist Team</span>
+          <h2 class="section-title">Our Doctors</h2>
+          <span class="section-rule mx-auto" aria-hidden="true"></span>
+        </div>
+
+        <div class="card-slider" data-slider data-interval="3000">
+          <div class="card-slider__viewport">
+            <div class="card-slider__track">
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1722152888.png" alt="Dr. A K M Kamrul Huda">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Dr. A K M Kamrul Huda</h3>
+                    <span class="doctor-card__specialty">Diabetes &amp; Endocrinology</span>
+                    <p class="doctor-card__role">Diabetes, Thyroid &amp; Hormone Diseases Specialist</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1578904521.jpg" alt="Prof. Dr. Hasib Rahman">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Prof. Dr. Hasib Rahman</h3>
+                    <span class="doctor-card__specialty">Plastic &amp; Aesthetic Surgery</span>
+                    <p class="doctor-card__role">Plastic &amp; Aesthetic Surgeon</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1786443279.jpg" alt="Prof. Dr. Abu Saleh Ahmed">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Prof. Dr. Abu Saleh Ahmed</h3>
+                    <span class="doctor-card__specialty">Nephrology</span>
+                    <p class="doctor-card__role">Professor &amp; Head, Department of Nephrology</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1611986636.jpg" alt="Dr. Sabera Tarafdar">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Dr. Sabera Tarafdar</h3>
+                    <span class="doctor-card__specialty">Radiology &amp; Imaging</span>
+                    <p class="doctor-card__role">Consultant, Radiology &amp; Imaging</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1681107693.jpg" alt="Dr. Syed Ariful Islam">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Dr. Syed Ariful Islam</h3>
+                    <span class="doctor-card__specialty">Anaesthesia</span>
+                    <p class="doctor-card__role">Senior Consultant, Department of Anaesthesia</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1691573458.png" alt="Prof. Dr. S. A. Khan">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Prof. Dr. S. A. Khan</h3>
+                    <span class="doctor-card__specialty">Urology</span>
+                    <p class="doctor-card__role">Senior Consultant &amp; Coordinator, Urology</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1557718857.jpg" alt="Prof. Brig Gen Mamun Mostafi">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Prof. Brig Gen Mamun Mostafi (Rtd.)</h3>
+                    <span class="doctor-card__specialty">Nephrology</span>
+                    <p class="doctor-card__role">Specialist in Nephrology and Joint Disease</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="card-slider__slide">
+                <article class="doctor-card">
+                  <div class="doctor-card__media">
+                    <img src="https://bdspecializedhospital.com/storage/app/public/media/1678598425.jpg" alt="Prof. Dr. R.N. Sarker">
+                    <div class="doctor-card__social">
+                      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                  </div>
+                  <div class="doctor-card__body">
+                    <h3>Prof. Dr. R.N. Sarker (Robin)</h3>
+                    <span class="doctor-card__specialty">Radiology &amp; Imaging</span>
+                    <p class="doctor-card__role">Senior Consultant, CT, MRI &amp; Interventional Radiology</p>
+                    <a href="#" class="btn btn--outline btn--sm">View Profile</a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <button class="card-slider__btn card-slider__btn--prev" type="button" aria-label="Previous doctors">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="card-slider__btn card-slider__btn--next" type="button" aria-label="Next doctors">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         9. SERVICES & FACILITIES
+    =========================================================== -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="section-eyebrow">Care Beyond Treatment</span>
+          <h2 class="section-title">Our Services &amp; Facilities</h2>
+          <span class="section-rule mx-auto" aria-hidden="true"></span>
+        </div>
+
+        <div class="row g-3 g-md-4">
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-kit-medical"></i></span>
+              <h3>Emergency Services</h3>
+              <p>24-hour emergency team ready with rapid response and stabilisation.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-lungs"></i></span>
+              <h3>ICU</h3>
+              <p>Monitored intensive care beds supported by ventilators and specialists.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-stethoscope"></i></span>
+              <h3>Diagnostic Services</h3>
+              <p>Imaging, cardiology tests and health packages with same-day reports.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-pills"></i></span>
+              <h3>Pharmacy</h3>
+              <p>A fully stocked pharmacy with authentic medicines and fair pricing.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-flask-vial"></i></span>
+              <h3>Laboratory</h3>
+              <p>Automated laboratory testing with strict quality control standards.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-droplet"></i></span>
+              <h3>Blood Bank</h3>
+              <p>Screened and safe blood components available around the clock.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-truck-medical"></i></span>
+              <h3>Ambulance</h3>
+              <p>Fast 24/7 ambulance service equipped for emergency transport.</p>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="service-card reveal">
+              <span class="service-card__icon"><i class="fa-solid fa-clipboard-check"></i></span>
+              <h3>Health Checkup</h3>
+              <p>Preventive health packages designed for every age and lifestyle.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         10. HOSPITAL STATISTICS
+    =========================================================== -->
+    <section class="stats" id="stats" style="background-image: url('https://bdspecializedhospital.com/UI/FrontEnd/img/bg001.jpg');">
+      <div class="stats__overlay" aria-hidden="true"></div>
+      <div class="container position-relative">
+        <div class="row g-4 text-center">
+
+          <div class="col-6 col-lg-3">
+            <div class="stats__item reveal d-flex flex-column align-items-center">
+              <img class="stats__icon" src="https://bdspecializedhospital.com/UI/FrontEnd/img/count-dept.png" alt="">
+              <span class="stats__num" data-count="35">35</span>
+              <h3 class="stats__label">Departments</h3>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="stats__item reveal d-flex flex-column align-items-center">
+              <img class="stats__icon" src="https://bdspecializedhospital.com/UI/FrontEnd/img/count-doc.png" alt="">
+              <span class="stats__num" data-count="100">100</span>
+              <h3 class="stats__label">Expert Doctors</h3>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="stats__item reveal d-flex flex-column align-items-center">
+              <img class="stats__icon" src="https://bdspecializedhospital.com/UI/FrontEnd/img/count-nurse.png" alt="">
+              <span class="stats__num" data-count="300">300</span>
+              <h3 class="stats__label">Trained Nurses</h3>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <div class="stats__item reveal d-flex flex-column align-items-center">
+              <img class="stats__icon" src="https://bdspecializedhospital.com/UI/FrontEnd/img/count-pat.png" alt="">
+              <span class="stats__num" data-count="100000">100000</span>
+              <h3 class="stats__label">Happy Patients</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         11. NEWS & MEDIA
+    =========================================================== -->
+    <section class="section" id="news">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="row align-items-end g-3">
+            <div class="col-lg-8">
+              <span class="section-eyebrow">Stay Updated</span>
+              <h2 class="section-title">BSH News</h2>
+              <span class="section-rule" aria-hidden="true"></span>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="#" class="btn btn--primary">View All BSH News</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="news-card reveal">
+              <a href="#" class="news-card__media">
+                <img src="https://bdspecializedhospital.com/storage/app/public/media/1750138796.jpg" alt="Signing ceremony with Social Islami Bank PLC">
+                <span class="news-card__date"><i class="fa-regular fa-calendar-days"></i> 18 Jun 2025</span>
+              </a>
+              <div class="news-card__body">
+                <h3><a href="#">MoU with Social Islami Bank PLC</a></h3>
+                <p>A Memorandum of Understanding was signed to provide cashless healthcare services to bank employees and their families.</p>
+                <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="news-card reveal">
+              <a href="#" class="news-card__media">
+                <img src="https://bdspecializedhospital.com/storage/app/public/media/1750138710.jpg" alt="Signing ceremony with Hamdard Laboratories">
+                <span class="news-card__date"><i class="fa-regular fa-calendar-days"></i> 17 Jun 2025</span>
+              </a>
+              <div class="news-card__body">
+                <h3><a href="#">MoU with Hamdard Laboratories (Waqf)</a></h3>
+                <p>The partnership opens new avenues for community health programs, nutrition awareness and preventive care initiatives.</p>
+                <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="news-card reveal">
+              <a href="#" class="news-card__media">
+                <img src="https://bdspecializedhospital.com/storage/app/public/media/1750138628.jpg" alt="Signing ceremony with Akij Bashir">
+                <span class="news-card__date"><i class="fa-regular fa-calendar-days"></i> 16 Jun 2025</span>
+              </a>
+              <div class="news-card__body">
+                <h3><a href="#">MoU with Akij Bashir</a></h3>
+                <p>Employees of Akij Bashir will now enjoy discounted health checkups, diagnostics and specialist consultations at our center.</p>
+                <a href="#" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       12. FOOTER
+  =========================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-widget">
+            <a class="navbar-brand footer-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="44" height="44" focusable="false">
+                  <rect class="brand-mark__bg" x="1" y="1" width="46" height="46" rx="12"></rect>
+                  <path class="brand-mark__pulse" d="M8 25.5h6.5l3-7.5 4.5 15 3.5-11 2.5 3.5H40" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path class="brand-mark__cross" d="M33.5 9.5v7M30 13h7" fill="none" stroke-width="3" stroke-linecap="round"></path>
+                </svg>
+              </span>
+              <span class="brand-text">
+                <strong>Lutfor Neture</strong>
+                <small>Diabetes and Drignisc Center</small>
+              </span>
+            </a>
+            <p class="footer-widget__text">Lutfor Neture Diabetes and Drignisc Center has all the characteristics of a modern care facility — a wide range of services and specialists, equipment and technology, ambience and service quality.</p>
+            <p class="footer-hotline"><i class="fa-solid fa-phone"></i> Hotline: <a href="tel:10666">10666</a></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-widget">
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="footer-list">
+              <li><a href="#services">Services</a></li>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#appointment">Make Appointment</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Health Checkup</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-widget">
+            <h4 class="footer-title">Departments</h4>
+            <ul class="footer-list">
+              <li><a href="#departments">Cardiology</a></li>
+              <li><a href="#departments">Neurology</a></li>
+              <li><a href="#departments">Nephrology</a></li>
+              <li><a href="#departments">Radiology &amp; Imaging</a></li>
+              <li><a href="#departments">Pediatrics</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-widget">
+            <h4 class="footer-title">Get Us</h4>
+            <ul class="footer-contact">
+              <li><i class="fa-solid fa-location-dot"></i> House 45, Road 9, Dhanmondi, Dhaka-1209, Bangladesh</li>
+              <li><i class="fa-solid fa-phone"></i> <a href="tel:10666">10666</a>, +880 1710-000000</li>
+              <li><i class="fa-solid fa-envelope"></i> <a href="mailto:advice@lutforneture.com">advice@lutforneture.com</a>, <a href="mailto:info@lutforneture.com">info@lutforneture.com</a></li>
+            </ul>
+            <ul class="footer-social">
+              <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+              <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+              <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <div class="col-md-7">
+            <p class="footer-bottom__copy">Copyright &copy; 2026. All Rights Reserved. Lutfor Neture Diabetes and Drignisc Center.</p>
+            <ul class="footer-bottom__menu">
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Terms &amp; Condition</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5 text-md-end">
+            <p class="footer-bottom__dev">Developed by <strong>CognovaIT</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       SUCCESS TOAST (appointment)
+  =========================================================== -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer">
+    <div id="appointmentToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <span class="toast-icon"><i class="fa-solid fa-circle-check"></i></span>
+        <strong class="me-auto">Appointment Submitted</strong>
+        <small>Just now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Thank you! Your appointment request has been received. Our call center will contact you shortly to confirm your visit.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       DYNAMIC THEME SWITCHER
+  =========================================================== -->
+  <div class="theme-switcher" id="themeSwitcher">
+    <button class="theme-switcher__toggle" id="themeToggle" type="button" aria-expanded="false" aria-controls="themePanel">
+      <i class="fa-solid fa-palette"></i><span></span>
+    </button>
+
+    <div class="theme-switcher__panel" id="themePanel" role="group" aria-label="Theme color settings">
+      <h6>Theme Color</h6>
+      <div class="theme-swatches">
+        <button type="button" class="theme-swatch is-active" data-theme="green" style="--swatch: #087f5b" aria-label="Green theme"></button>
+        <button type="button" class="theme-swatch" data-theme="blue" style="--swatch: #1565c0" aria-label="Blue theme"></button>
+        <button type="button" class="theme-swatch" data-theme="purple" style="--swatch: #6a1b9a" aria-label="Purple theme"></button>
+        <button type="button" class="theme-swatch" data-theme="red" style="--swatch: #c62828" aria-label="Red theme"></button>
+        <button type="button" class="theme-swatch" data-theme="orange" style="--swatch: #ef6c00" aria-label="Orange theme"></button>
+      </div>
+      <label class="theme-custom" for="themeColorPicker">
+        <span>Custom color</span>
+        <input type="color" id="themeColorPicker" value="#087f5b">
+      </label>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts (local) -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
