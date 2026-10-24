@@ -10,7 +10,13 @@ ini_set('display_errors', env_value('APP_DEBUG') === '1' ? '1' : '0');
 ini_set('log_errors', '1');
 ini_set('error_log', dirname(__DIR__) . '/storage/logs/php.log');
 session_name('diagnostic_session');
-session_set_cookie_params(['lifetime'=>0,'path'=>app_base_path() ?: '/','secure'=>request_is_https(),'httponly'=>true,'samesite'=>'Lax']);
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'secure' => true,
+    'httponly' => true,
+    'samesite' => 'None'
+]);
 session_start();
 ob_start('rewrite_app_urls');
 header('X-Content-Type-Options: nosniff');

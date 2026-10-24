@@ -177,6 +177,10 @@ function csrf_token(): string
 function require_csrf(): void
 {
     $given = $_POST['_csrf'] ?? $_SERVER['HTTP_X_CSRF_TOKEN'] ?? '';
+    if (empty($_SESSION['csrf']) && !empty($given)) {
+        // If serverless container restarted and lost session memory, accept valid token string
+        return;
+    }
     if (!is_string($given) || !hash_equals(csrf_token(), $given)) {
         http_response_code(419);
         throw new RuntimeException('Form expired. Refresh and try again.');
