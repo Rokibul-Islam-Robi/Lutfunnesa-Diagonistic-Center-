@@ -16,6 +16,12 @@ if (is_file($vendorAutoload)) {
 
 function env_value(string $name, string $default = ''): string
 {
+    // Check $_ENV and $_SERVER first (Vercel Serverless environment)
+    if (isset($_ENV[$name]) && $_ENV[$name] !== '') return (string) $_ENV[$name];
+    if (isset($_SERVER[$name]) && $_SERVER[$name] !== '') return (string) $_SERVER[$name];
+    $val = getenv($name);
+    if ($val !== false && $val !== '') return (string) $val;
+
     static $values = null;
     if ($values === null) {
         $values = [];
@@ -28,7 +34,7 @@ function env_value(string $name, string $default = ''): string
             }
         }
     }
-    return (string) (getenv($name) ?: ($values[$name] ?? $default));
+    return (string) ($values[$name] ?? $default);
 }
 
 date_default_timezone_set(env_value('APP_TIMEZONE', 'Asia/Dhaka'));
