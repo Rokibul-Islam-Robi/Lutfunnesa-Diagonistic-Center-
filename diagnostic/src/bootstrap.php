@@ -100,12 +100,20 @@ function db(): PDO
     $pass = env_value('DB_PASSWORD', '');
     $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', $host, $port, $dbname);
     
-    $connect = function($u, $p) use ($dsn) {
-        return new PDO($dsn, $u, $p, [
+    $connect = function($u, $p) use ($dsn, $host) {
+        $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
-        ]);
+        ];
+
+        // Cloud MySQL / TiDB / Aiven SSL requirement
+        if ($host !== '127.0.0.1' && $host !== 'localhost') {
+            $options[PDO::MYSQL_ATTR_SSL_CA] = true;
+            $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+        }
+
+        return new PDO($dsn, $u, $p, $options);
     };
 
     try {
