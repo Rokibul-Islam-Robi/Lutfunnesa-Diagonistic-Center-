@@ -26,6 +26,18 @@ try {
     $db = db();
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
     $page = (string) ($_GET['page'] ?? 'dashboard');
+
+    // Auto-setup database schema if empty (e.g. freshly connected TiDB cloud)
+    if ($page === 'setup_db' || !empty($_GET['init_db'])) {
+        $sqlFile = dirname(__DIR__) . '/database/tigersof_diagnostic.sql';
+        if (file_exists($sqlFile)) {
+            $db->exec("SET FOREIGN_KEY_CHECKS=0;");
+            $db->exec(file_get_contents($sqlFile));
+            $db->exec("SET FOREIGN_KEY_CHECKS=1;");
+            flash('success', 'Database tables and initial ERP data imported successfully!');
+            redirect('index.php?page=login');
+        }
+    }
     if ($page === 'login') {
         if ($method === 'POST') {
             require_csrf();
