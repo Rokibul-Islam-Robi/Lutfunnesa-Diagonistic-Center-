@@ -99,11 +99,11 @@ function db(): PDO
 {
     static $db = null;
     if ($db instanceof PDO) return $db;
-    $host = env_value('DB_HOST', '127.0.0.1');
-    $port = env_value('DB_PORT', '3306');
-    $dbname = env_value('DB_NAME', 'tigersof_diagnostic');
-    $user = env_value('DB_USER', 'root');
-    $pass = env_value('DB_PASSWORD', '');
+    $host = env_value('DB_HOST', 'gateway01.ap-northeast-1.prod.aws.tidbcloud.com');
+    $port = env_value('DB_PORT', '4000');
+    $dbname = env_value('DB_NAME', 'test');
+    $user = env_value('DB_USER', '2j1q3whjJpQMVWL.root');
+    $pass = env_value('DB_PASSWORD', 'hRVF0vucg24bv3wt');
     $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', $host, $port, $dbname);
     
     $connect = function($u, $p) use ($dsn, $host) {

@@ -17,7 +17,7 @@ CREATE TABLE `analyzer_connectors` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `analyzer_connectors`
 INSERT INTO `analyzer_connectors` (`id`, `code`, `name`, `protocol`, `active`, `created_at`) VALUES ('1', 'SYS-XN550', 'Sysmex XN-550 Automated Hematology Analyzer (Japan)', 'astm', '1', '2026-10-11 17:23:12');
@@ -40,7 +40,7 @@ CREATE TABLE `analyzer_mappings` (
   KEY `erp_test_id` (`erp_test_id`),
   CONSTRAINT `analyzer_mappings_ibfk_1` FOREIGN KEY (`connector_id`) REFERENCES `analyzer_connectors` (`id`),
   CONSTRAINT `analyzer_mappings_ibfk_2` FOREIGN KEY (`erp_test_id`) REFERENCES `diagnostic_tests` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `analyzer_messages`
 DROP TABLE IF EXISTS `analyzer_messages`;
@@ -53,7 +53,7 @@ CREATE TABLE `analyzer_messages` (
   PRIMARY KEY (`id`),
   KEY `connector_id` (`connector_id`),
   CONSTRAINT `analyzer_messages_ibfk_1` FOREIGN KEY (`connector_id`) REFERENCES `analyzer_connectors` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `appointments`
 DROP TABLE IF EXISTS `appointments`;
@@ -93,7 +93,7 @@ CREATE TABLE `appointments` (
   CONSTRAINT `appointments_ibfk_3` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`id`),
   CONSTRAINT `appointments_ibfk_4` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
   CONSTRAINT `appointments_ibfk_5` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `appointments`
 INSERT INTO `appointments` (`id`, `appointment_no`, `branch_id`, `patient_id`, `doctor_id`, `room_id`, `booking_source`, `appointment_date`, `time_slot`, `consultation_fee`, `discount_amount`, `payable_amount`, `paid_amount`, `payment_method`, `payment_status`, `referrer_id`, `voucher_code`, `token_no`, `status`, `clinical_notes`, `created_by`, `created_at`, `updated_at`) VALUES ('1', 'APT-2026-00001', '1', '3', '8', NULL, 'walkin', '2026-10-11', '10:00PM', '1000.00', '0.00', '1000.00', '1000.00', 'CASH', 'paid', NULL, NULL, NULL, 'scheduled', NULL, '1', '2026-10-11 12:23:20', '2026-10-11 12:23:20');
@@ -125,7 +125,7 @@ CREATE TABLE `approval_policies` (
   PRIMARY KEY (`id`),
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `approval_policies_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `approval_policies`
 INSERT INTO `approval_policies` (`id`, `action_type`, `branch_id`, `min_amount`, `max_amount`, `approver_permission`, `active`, `created_at`) VALUES ('1', 'discount', NULL, '0.00', '50000.00', 'approvals.decide', '1', '2026-10-21 11:12:17');
@@ -162,7 +162,7 @@ CREATE TABLE `approval_requests` (
   CONSTRAINT `approval_requests_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `approval_requests_ibfk_3` FOREIGN KEY (`maker_id`) REFERENCES `users` (`id`),
   CONSTRAINT `approval_requests_ibfk_4` FOREIGN KEY (`checker_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `approval_requests`
 INSERT INTO `approval_requests` (`id`, `policy_id`, `action_type`, `entity_type`, `entity_id`, `branch_id`, `amount`, `maker_id`, `checker_id`, `status`, `request_reason`, `decision_reason`, `created_at`, `decided_at`) VALUES ('1', '1', 'discount', 'invoice', 'INV-2026-00001', '1', '450.00', '2', NULL, 'pending', 'Special 15% discount for verified Freedom Fighter / Senior Citizen diabetic patient (Nasir Uddin).', NULL, '2026-10-21 09:12:17', NULL);
@@ -193,7 +193,7 @@ CREATE TABLE `audit_logs` (
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `audit_logs_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `users` (`id`),
   CONSTRAINT `audit_logs_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=219 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=219 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `audit_logs`
 INSERT INTO `audit_logs` (`id`, `actor_id`, `branch_id`, `entity_type`, `entity_id`, `action`, `before_json`, `after_json`, `reason`, `ip_address`, `occurred_at`) VALUES ('1', '1', NULL, 'users', '1', 'login', NULL, '{\"email\":\"admin@cognovait.com\"}', NULL, '103.170.173.79', '2026-09-28 19:31:22');
@@ -426,7 +426,7 @@ CREATE TABLE `banks` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `branches`
 DROP TABLE IF EXISTS `branches`;
@@ -445,7 +445,7 @@ CREATE TABLE `branches` (
   UNIQUE KEY `code` (`code`),
   KEY `organization_id` (`organization_id`),
   CONSTRAINT `branches_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `branches`
 INSERT INTO `branches` (`id`, `organization_id`, `code`, `name`, `address`, `phone`, `timezone`, `active`, `created_at`, `updated_at`) VALUES ('1', '1', 'DHA', 'Dhaka Main Branch', 'Dhaka, Bangladesh', NULL, 'Asia/Dhaka', '1', '2026-09-28 19:30:57', '2026-09-28 19:30:57');
@@ -471,7 +471,7 @@ CREATE TABLE `budgets` (
   CONSTRAINT `budgets_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `budgets_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   CONSTRAINT `budgets_ibfk_3` FOREIGN KEY (`account_id`) REFERENCES `chart_of_accounts` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `capa_incidents`
 DROP TABLE IF EXISTS `capa_incidents`;
@@ -494,7 +494,7 @@ CREATE TABLE `capa_incidents` (
   KEY `reported_by` (`reported_by`),
   CONSTRAINT `capa_incidents_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   CONSTRAINT `capa_incidents_ibfk_2` FOREIGN KEY (`reported_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `capa_incidents`
 INSERT INTO `capa_incidents` (`id`, `incident_no`, `department_id`, `severity`, `issue_description`, `root_cause`, `corrective_action`, `preventive_action`, `target_date`, `status`, `reported_by`, `created_at`) VALUES ('1', 'CAPA-2026-001', '3', 'major', 'Specimen hemolyzed during peak hour transit due to courier cold-chain container seal breakdown.', 'Defective gasket seal on secondary insulated cooler transport box.', 'Immediately replaced transport boxes with certified medical cooler units equipped with digital temperature data loggers.', 'Daily cold chain temperature audit log before courier vehicle departure.', '2026-10-28', 'open', '3', '2026-10-21 06:12:17');
@@ -529,7 +529,7 @@ CREATE TABLE `cashier_shifts` (
   CONSTRAINT `cashier_shifts_ibfk_2` FOREIGN KEY (`counter_id`) REFERENCES `counters` (`id`),
   CONSTRAINT `cashier_shifts_ibfk_3` FOREIGN KEY (`cashier_id`) REFERENCES `users` (`id`),
   CONSTRAINT `cashier_shifts_ibfk_4` FOREIGN KEY (`supervisor_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `cashier_shifts`
 INSERT INTO `cashier_shifts` (`id`, `branch_id`, `counter_id`, `shift_code`, `cashier_id`, `opening_float`, `system_expected_cash`, `declared_cash`, `variance`, `status`, `supervisor_approved`, `opened_at`, `closed_at`, `supervisor_id`, `notes`) VALUES ('1', '1', '5', 'SHIFT-001', '1', '500.00', '500.00', '0.00', '0.00', 'open', '0', '2026-10-11 16:22:49', NULL, NULL, NULL);
@@ -548,7 +548,7 @@ CREATE TABLE `chart_of_accounts` (
   UNIQUE KEY `account_code` (`account_code`),
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `chart_of_accounts_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `chart_of_accounts` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `chart_of_accounts`
 INSERT INTO `chart_of_accounts` (`id`, `account_code`, `name`, `account_type`, `parent_id`, `active`, `created_at`) VALUES ('1', '1010-CASH', 'Cash in Hand - Pharmacy POS Desk', 'asset', NULL, '1', '2026-10-11 02:29:28');
@@ -604,7 +604,7 @@ CREATE TABLE `collection_booths` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_booth` (`branch_id`,`code`),
   CONSTRAINT `collection_booths_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `commission_accruals`
 DROP TABLE IF EXISTS `commission_accruals`;
@@ -628,7 +628,7 @@ CREATE TABLE `commission_accruals` (
   CONSTRAINT `commission_accruals_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `diagnostic_orders` (`id`),
   CONSTRAINT `commission_accruals_ibfk_2` FOREIGN KEY (`order_item_id`) REFERENCES `diagnostic_order_items` (`id`),
   CONSTRAINT `commission_accruals_ibfk_3` FOREIGN KEY (`referrer_id`) REFERENCES `referrers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `commission_accruals`
 INSERT INTO `commission_accruals` (`id`, `order_id`, `order_item_id`, `referrer_id`, `billed_amount`, `realized_amount`, `rate_used`, `calculated_commission`, `status`, `hold_reason`, `created_at`, `updated_at`) VALUES ('6', '1', '1', '1', '2500.00', '2500.00', '15.00', '375.00', 'accrued', NULL, '2026-10-11 12:00:00', '2026-10-20 13:12:43');
@@ -658,7 +658,7 @@ CREATE TABLE `commission_rules` (
   CONSTRAINT `commission_rules_ibfk_1` FOREIGN KEY (`referrer_id`) REFERENCES `referrers` (`id`),
   CONSTRAINT `commission_rules_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   CONSTRAINT `commission_rules_ibfk_3` FOREIGN KEY (`test_id`) REFERENCES `diagnostic_tests` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `commission_rules`
 INSERT INTO `commission_rules` (`id`, `referrer_id`, `department_id`, `test_id`, `rate_type`, `rate_value`, `max_commission`, `effective_from`, `effective_to`, `active`, `created_at`) VALUES ('1', NULL, NULL, NULL, 'percent_gross', '15.00', NULL, '2026-07-22', NULL, '1', '2026-10-20 15:44:03');
@@ -691,7 +691,7 @@ CREATE TABLE `commission_settlement_batches` (
   CONSTRAINT `commission_settlement_batches_ibfk_1` FOREIGN KEY (`referrer_id`) REFERENCES `referrers` (`id`),
   CONSTRAINT `commission_settlement_batches_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `commission_settlement_batches_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `commission_settlement_batches`
 INSERT INTO `commission_settlement_batches` (`id`, `batch_no`, `referrer_id`, `branch_id`, `period_start`, `period_end`, `gross_commission`, `tds_deduction`, `net_payable`, `status`, `paid_at`, `payment_reference`, `created_by`, `created_at`) VALUES ('1', 'BAT-2026-001', '1', '1', '2026-09-01', '2026-09-30', '18500.00', '1850.00', '16650.00', 'paid', '2026-10-20 15:44:03', 'EFT-DBBL-99120', '1', '2026-10-20 15:44:03');
@@ -713,7 +713,7 @@ CREATE TABLE `compliance_licenses` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `license_no` (`license_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `compliance_licenses`
 INSERT INTO `compliance_licenses` (`id`, `license_no`, `title`, `category`, `issuing_authority`, `effective_date`, `expiry_date`, `status`, `created_at`) VALUES ('1', 'DGHS-DIAG-DHAKA-2026-089', 'DGHS Clinical Diagnostic Center & Pathology Lab Facility License', 'facility', 'Directorate General of Health Services (DGHS Bangladesh)', '2026-01-01', '2026-12-31', 'active', '2026-01-01 10:00:00');
@@ -734,7 +734,7 @@ CREATE TABLE `containers` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `controlled_documents`
 DROP TABLE IF EXISTS `controlled_documents`;
@@ -750,7 +750,7 @@ CREATE TABLE `controlled_documents` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `doc_no` (`doc_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `controlled_documents`
 INSERT INTO `controlled_documents` (`id`, `doc_no`, `title`, `category`, `version`, `effective_date`, `review_date`, `status`, `created_at`) VALUES ('1', 'SOP-CLIN-001', 'Critical Laboratory Result Immediate Telephone Notification SOP', 'sop', '2.1', '2026-01-01', '2027-01-01', 'approved', '2026-01-01 09:00:00');
@@ -773,7 +773,7 @@ CREATE TABLE `corporate_clients` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `corporate_clients`
 INSERT INTO `corporate_clients` (`id`, `code`, `name`, `phone`, `email`, `active`, `created_at`, `updated_at`) VALUES ('1', 'CORP-001', 'Grameenphone Corporate Health Scheme', '01711-998877', 'health@grameenphone.com', '1', '2026-10-20 13:11:16', '2026-10-20 13:11:16');
@@ -800,7 +800,7 @@ CREATE TABLE `corporate_contracts` (
   UNIQUE KEY `contract_no` (`contract_no`),
   KEY `corporate_client_id` (`corporate_client_id`),
   CONSTRAINT `corporate_contracts_ibfk_1` FOREIGN KEY (`corporate_client_id`) REFERENCES `corporate_clients` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `corporate_contracts`
 INSERT INTO `corporate_contracts` (`id`, `corporate_client_id`, `contract_no`, `agreement_start`, `agreement_end`, `credit_limit`, `current_balance`, `discount_percent`, `pre_auth_required`, `active`, `created_at`, `updated_at`) VALUES ('1', '1', 'CNT-2026-GP01', '2026-01-01', '2026-12-31', '1500000.00', '345000.00', '20.00', '1', '1', '2026-10-20 15:19:14', '2026-10-20 15:19:14');
@@ -822,7 +822,7 @@ CREATE TABLE `corporate_employees` (
   PRIMARY KEY (`id`),
   KEY `corporate_client_id` (`corporate_client_id`),
   CONSTRAINT `corporate_employees_ibfk_1` FOREIGN KEY (`corporate_client_id`) REFERENCES `corporate_clients` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `corporate_invoices`
 DROP TABLE IF EXISTS `corporate_invoices`;
@@ -847,7 +847,7 @@ CREATE TABLE `corporate_invoices` (
   CONSTRAINT `corporate_invoices_ibfk_1` FOREIGN KEY (`corporate_client_id`) REFERENCES `corporate_clients` (`id`),
   CONSTRAINT `corporate_invoices_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `corporate_invoices_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `corporate_invoices`
 INSERT INTO `corporate_invoices` (`id`, `invoice_no`, `corporate_client_id`, `branch_id`, `billing_period`, `total_amount`, `disputed_amount`, `due_amount`, `status`, `submitted_at`, `created_by`, `created_at`) VALUES ('1', 'CORP-INV-2026-001', '1', '1', 'Sep 2026', '185000.00', '0.00', '45000.00', 'partially_paid', '2026-10-01 10:00:00', '1', '2026-10-01 10:00:00');
@@ -873,7 +873,7 @@ CREATE TABLE `corporate_payments` (
   CONSTRAINT `corporate_payments_ibfk_1` FOREIGN KEY (`corporate_invoice_id`) REFERENCES `corporate_invoices` (`id`),
   CONSTRAINT `corporate_payments_ibfk_2` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_methods` (`id`),
   CONSTRAINT `corporate_payments_ibfk_3` FOREIGN KEY (`received_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `cost_centers`
 DROP TABLE IF EXISTS `cost_centers`;
@@ -888,7 +888,7 @@ CREATE TABLE `cost_centers` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_cost_center` (`branch_id`,`code`),
   CONSTRAINT `cost_centers_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `counters`
 DROP TABLE IF EXISTS `counters`;
@@ -904,7 +904,7 @@ CREATE TABLE `counters` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_counter` (`branch_id`,`code`),
   CONSTRAINT `counters_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `counters`
 INSERT INTO `counters` (`id`, `branch_id`, `code`, `name`, `purpose`, `active`, `created_at`, `updated_at`) VALUES ('1', '1', 'CTR-REG-01', 'Registration & Patient Reception (Desk 1)', 'registration', '1', '2026-10-11 14:26:19', '2026-10-11 14:26:19');
@@ -925,7 +925,7 @@ CREATE TABLE `critical_alert_logs` (
   `status` enum('pending','notified','acknowledged') NOT NULL DEFAULT 'pending',
   `logged_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `critical_alert_logs`
 INSERT INTO `critical_alert_logs` (`id`, `order_item_id`, `critical_parameter`, `critical_value`, `notified_to`, `status`, `logged_at`) VALUES ('1', '1', 'Fasting Blood Sugar (Glucose)', '24.8 mmol/L (Severe Hyperglycemia - Panic Value)', 'Dr. Specialist Doctor Consultant & On-Duty Medical Officer', 'pending', '2026-10-21 10:57:17');
@@ -947,7 +947,7 @@ CREATE TABLE `crm_leads` (
   PRIMARY KEY (`id`),
   KEY `assigned_to` (`assigned_to`),
   CONSTRAINT `crm_leads_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `crm_leads`
 INSERT INTO `crm_leads` (`id`, `company_name`, `contact_person`, `phone`, `email`, `status`, `assigned_to`, `notes`, `created_at`, `updated_at`) VALUES ('1', 'Grameenphone Corporate HQ', 'Rahat Chowdhury (Head of HR)', '+8801711998877', 'rahat.c@grameenphone.com', 'contracted', '1', 'Annual executive health package and executive wellness screening contract finalized.', '2026-10-20 15:44:03', '2026-10-20 15:44:03');
@@ -966,7 +966,7 @@ CREATE TABLE `culture_sensitivities` (
   PRIMARY KEY (`id`),
   KEY `culture_id` (`culture_id`),
   CONSTRAINT `culture_sensitivities_ibfk_1` FOREIGN KEY (`culture_id`) REFERENCES `microbiology_cultures` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `culture_sensitivities`
 INSERT INTO `culture_sensitivities` (`id`, `culture_id`, `antibiotic_name`, `susceptibility`, `mic_value`) VALUES ('1', '1', 'Amikacin', 'S', '<=2 ug/mL');
@@ -990,7 +990,7 @@ CREATE TABLE `departments` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq_department_branch_code` (`branch_id`,`code`),
   CONSTRAINT `departments_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `departments`
 INSERT INTO `departments` (`id`, `branch_id`, `code`, `name`, `kind`, `active`, `created_at`, `updated_at`) VALUES ('1', '1', 'DEPT-OPD-DIA', 'Diabetology & Endocrinology OPD', 'clinical', '1', '2026-10-10 17:53:29', '2026-10-10 17:53:29');
@@ -1019,7 +1019,7 @@ CREATE TABLE `diagnostic_order_items` (
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`),
   CONSTRAINT `diagnostic_order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `diagnostic_orders` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `diagnostic_order_items`
 INSERT INTO `diagnostic_order_items` (`id`, `order_id`, `item_type`, `item_id`, `item_name`, `price`, `fasting_required`, `preparation_notes`, `status`) VALUES ('1', '1', 'test', '1', 'Fasting Blood Sugar (FBS / Glucose)', '200.00', '0', 'Standard laboratory handling', 'completed');
@@ -1087,7 +1087,7 @@ CREATE TABLE `diagnostic_orders` (
   CONSTRAINT `diagnostic_orders_ibfk_4` FOREIGN KEY (`referrer_id`) REFERENCES `referrers` (`id`),
   CONSTRAINT `diagnostic_orders_ibfk_5` FOREIGN KEY (`corporate_client_id`) REFERENCES `corporate_clients` (`id`),
   CONSTRAINT `diagnostic_orders_ibfk_6` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `diagnostic_orders`
 INSERT INTO `diagnostic_orders` (`id`, `order_no`, `branch_id`, `patient_id`, `doctor_id`, `referrer_id`, `corporate_client_id`, `urgency`, `collection_location`, `clinical_notes`, `status`, `total_amount`, `discount_amount`, `payable_amount`, `created_by`, `created_at`, `updated_at`) VALUES ('1', 'ORD-2026-00101', '1', '1', NULL, '1', NULL, 'routine', 'Main Specimen Booth #2', 'Routine Clinical Workup & Investigation', 'ready_for_collection', '2500.00', '0.00', '2500.00', '1', '2026-10-05 18:31:34', '2026-10-20 15:19:14');
@@ -1144,7 +1144,7 @@ CREATE TABLE `diagnostic_tests` (
   CONSTRAINT `diagnostic_tests_ibfk_4` FOREIGN KEY (`methodology_id`) REFERENCES `methodologies` (`id`),
   CONSTRAINT `diagnostic_tests_ibfk_5` FOREIGN KEY (`unit_id`) REFERENCES `measurement_units` (`id`),
   CONSTRAINT `diagnostic_tests_ibfk_6` FOREIGN KEY (`report_template_id`) REFERENCES `report_templates` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `diagnostic_tests`
 INSERT INTO `diagnostic_tests` (`id`, `code`, `name`, `department_id`, `category_id`, `sample_type_id`, `container_id`, `methodology_id`, `unit_id`, `report_template_id`, `turnaround_minutes`, `price`, `normal_range`, `sample_requirement`, `active`, `created_at`, `updated_at`) VALUES ('1', 'BIO-001', 'Fasting Blood Sugar (FBS / Glucose)', '3', '1', NULL, NULL, NULL, NULL, NULL, '60', '200.00', '70.0 - 99.0 mg/dL', '8-10 Hours Overnight Fasting (Fluoride/Grey or Serum)', '1', '2026-10-10 18:31:12', '2026-10-10 18:31:12');
@@ -1189,7 +1189,7 @@ CREATE TABLE `discount_types` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `doctor_schedules`
 DROP TABLE IF EXISTS `doctor_schedules`;
@@ -1213,7 +1213,7 @@ CREATE TABLE `doctor_schedules` (
   CONSTRAINT `doctor_schedules_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`id`),
   CONSTRAINT `doctor_schedules_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `doctor_schedules_ibfk_3` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `doctors`
 DROP TABLE IF EXISTS `doctors`;
@@ -1231,7 +1231,7 @@ CREATE TABLE `doctors` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `doctors`
 INSERT INTO `doctors` (`id`, `code`, `name`, `mobile`, `registration_no`, `specialty`, `consultation_fee`, `profile_image`, `active`, `created_at`, `updated_at`) VALUES ('1', 'DOC-001', 'Prof. Dr. M. Rahman', '01711-223344', 'BMDC-A-28491', 'Diabetology & Endocrinology', '1000.00', '/assets/img/doctors/doc1.jpg', '1', '2026-10-10 17:53:29', '2026-10-21 12:02:05');
@@ -1257,7 +1257,7 @@ CREATE TABLE `employee_competencies` (
   PRIMARY KEY (`id`),
   KEY `employee_id` (`employee_id`),
   CONSTRAINT `employee_competencies_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `hr_employees` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `employee_competencies`
 INSERT INTO `employee_competencies` (`id`, `employee_id`, `competency_title`, `category`, `assessment_score`, `expiry_date`, `created_at`) VALUES ('1', '1', 'Histopathology & Cytopathology Biopsy Reporting Standards', 'lab', '99.50', '2027-12-31', '2026-10-20 11:27:02');
@@ -1284,7 +1284,7 @@ CREATE TABLE `employee_rosters` (
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `employee_rosters_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `hr_employees` (`id`),
   CONSTRAINT `employee_rosters_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `employee_rosters`
 INSERT INTO `employee_rosters` (`id`, `employee_id`, `branch_id`, `shift_date`, `shift_name`, `start_time`, `end_time`, `created_at`) VALUES ('1', '1', '1', '2026-10-17', 'morning', '08:00:00', '16:00:00', '2026-10-20 11:27:01');
@@ -1378,7 +1378,7 @@ CREATE TABLE `equipment_assets` (
   KEY `supplier_id` (`supplier_id`),
   CONSTRAINT `equipment_assets_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   CONSTRAINT `equipment_assets_ibfk_2` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `equipment_assets`
 INSERT INTO `equipment_assets` (`id`, `asset_code`, `name`, `model_no`, `serial_no`, `department_id`, `supplier_id`, `purchase_date`, `warranty_expiry`, `status`, `created_at`) VALUES ('1', 'EQ-ROCHE-01', 'Roche Cobas C311 Fully Automated Clinical Chemistry Analyzer', 'Cobas C311', 'SN-C311-BD-8921', '3', '1', '2024-03-15', '2027-03-15', 'operational', '2026-10-20 15:18:21');
@@ -1407,7 +1407,7 @@ CREATE TABLE `equipment_maintenance_tickets` (
   KEY `reported_by` (`reported_by`),
   CONSTRAINT `equipment_maintenance_tickets_ibfk_1` FOREIGN KEY (`asset_id`) REFERENCES `equipment_assets` (`id`),
   CONSTRAINT `equipment_maintenance_tickets_ibfk_2` FOREIGN KEY (`reported_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `equipment_maintenance_tickets`
 INSERT INTO `equipment_maintenance_tickets` (`id`, `ticket_no`, `asset_id`, `maintenance_kind`, `priority`, `issue_description`, `cost`, `status`, `reported_by`, `created_at`) VALUES ('1', 'TKT-2026-002', '1', 'preventive', 'medium', 'Quarterly routine preventive maintenance (PM) and probe fluidic wash cycle completed.', '8500.00', 'resolved', '1', '2026-10-20 15:18:21');
@@ -1432,7 +1432,7 @@ CREATE TABLE `executive_kpi_snapshots` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `snapshot_date` (`snapshot_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `family_health_members`
 DROP TABLE IF EXISTS `family_health_members`;
@@ -1464,7 +1464,7 @@ CREATE TABLE `fiscal_periods` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `period_name` (`period_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `fixed_asset_register`
 DROP TABLE IF EXISTS `fixed_asset_register`;
@@ -1483,7 +1483,7 @@ CREATE TABLE `fixed_asset_register` (
   UNIQUE KEY `asset_code` (`asset_code`),
   KEY `account_id` (`account_id`),
   CONSTRAINT `fixed_asset_register_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `chart_of_accounts` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `gl_entries`
 DROP TABLE IF EXISTS `gl_entries`;
@@ -1501,7 +1501,7 @@ CREATE TABLE `gl_entries` (
   CONSTRAINT `gl_entries_ibfk_1` FOREIGN KEY (`voucher_id`) REFERENCES `gl_vouchers` (`id`),
   CONSTRAINT `gl_entries_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `chart_of_accounts` (`id`),
   CONSTRAINT `gl_entries_ibfk_3` FOREIGN KEY (`cost_center_id`) REFERENCES `cost_centers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `gl_entries`
 INSERT INTO `gl_entries` (`id`, `voucher_id`, `account_id`, `cost_center_id`, `debit`, `credit`) VALUES ('1', '1', '7', NULL, '5000000.00', '0.00');
@@ -1545,7 +1545,7 @@ CREATE TABLE `gl_vouchers` (
   KEY `created_by` (`created_by`),
   CONSTRAINT `gl_vouchers_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `gl_vouchers_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `gl_vouchers`
 INSERT INTO `gl_vouchers` (`id`, `voucher_no`, `branch_id`, `voucher_type`, `voucher_date`, `narration`, `status`, `created_by`, `created_at`) VALUES ('1', 'VCH-2026-00001', '1', 'receipt', '2026-10-01', 'Initial capital equity deposited by founders into Dutch-Bangla Corporate Account.', 'posted', '1', '2026-10-20 13:04:22');
@@ -1578,7 +1578,7 @@ CREATE TABLE `goods_received_notes` (
   CONSTRAINT `goods_received_notes_ibfk_1` FOREIGN KEY (`po_id`) REFERENCES `purchase_orders` (`id`),
   CONSTRAINT `goods_received_notes_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `goods_received_notes_ibfk_3` FOREIGN KEY (`received_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `goods_received_notes`
 INSERT INTO `goods_received_notes` (`id`, `grn_no`, `po_id`, `branch_id`, `supplier_invoice_no`, `received_by`, `created_at`) VALUES ('1', 'GRN-20261020-001', '1', '1', 'INV-C4CA4238', '1', '2026-10-20 14:54:04');
@@ -1617,7 +1617,7 @@ CREATE TABLE `home_collections` (
   CONSTRAINT `home_collections_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
   CONSTRAINT `home_collections_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `home_collections_ibfk_3` FOREIGN KEY (`collector_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `home_collections`
 INSERT INTO `home_collections` (`id`, `booking_no`, `patient_id`, `patient_category`, `branch_id`, `collector_id`, `geo_zone`, `address`, `time_slot`, `travel_charge`, `tests_json`, `tests_amount`, `discount_amount`, `discount_approved_by`, `total_payable`, `paid_amount`, `payment_method`, `payment_status`, `status`, `created_at`, `updated_at`) VALUES ('1', 'HC-202610-001', '1', 'doctor_prescribed', '1', '1', 'Gulshan / Banani Zone', 'House 42, Road 11, Block D, Banani, Dhaka-1213 (Floor 4, Apt B4)', '07:00 AM - 09:00 AM', '300.00', NULL, '0.00', '0.00', NULL, '0.00', '0.00', 'CASH', 'paid', 'handed_over', '2026-10-18 06:45:00', '2026-10-20 16:11:11');
@@ -1754,7 +1754,7 @@ CREATE TABLE `hr_employees` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `hr_employees_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   CONSTRAINT `hr_employees_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `hr_employees`
 INSERT INTO `hr_employees` (`id`, `employee_code`, `name`, `designation`, `department_id`, `user_id`, `mobile`, `email`, `license_no`, `license_expiry`, `basic_salary`, `joining_date`, `status`, `created_at`) VALUES ('1', 'EMP-1001', 'Dr. Ahsan Habib', 'Chief Medical Officer & Senior Pathologist', '1', NULL, '01711-234567', 'ahsan.habib@lutfunnesa.com', 'BMDC-A-41205', '2028-12-31', '95000.00', '2022-01-15', 'active', '2026-10-20 11:27:01');
@@ -1805,7 +1805,7 @@ CREATE TABLE `integration_webhooks` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `idempotency_key` (`idempotency_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `inventory_batches`
 DROP TABLE IF EXISTS `inventory_batches`;
@@ -1824,7 +1824,7 @@ CREATE TABLE `inventory_batches` (
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `inventory_batches_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `inventory_items` (`id`),
   CONSTRAINT `inventory_batches_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `inventory_batches`
 INSERT INTO `inventory_batches` (`id`, `item_id`, `branch_id`, `batch_no`, `lot_no`, `expiry_date`, `quantity_on_hand`, `unit_cost`, `created_at`) VALUES ('1', '1', '1', 'LOT-2026-CB11', 'RO-99120', '2026-11-15', '45.00', '12500.00', '2026-10-20 15:18:21');
@@ -1849,7 +1849,7 @@ CREATE TABLE `inventory_items` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `inventory_items`
 INSERT INTO `inventory_items` (`id`, `code`, `name`, `category`, `unit_name`, `manufacturer`, `min_reorder_level`, `storage_condition`, `active`, `created_at`) VALUES ('1', 'RGT-COB-01', 'Roche Cobas C311 Clinical Chemistry Reagent Pack', 'reagent', 'Kits', 'Roche Diagnostics', '10.00', '2°C - 8°C Cold Chain', '1', '2026-10-20 15:18:21');
@@ -1881,7 +1881,7 @@ CREATE TABLE `inventory_transfers` (
   CONSTRAINT `inventory_transfers_ibfk_2` FOREIGN KEY (`to_branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `inventory_transfers_ibfk_3` FOREIGN KEY (`item_id`) REFERENCES `inventory_items` (`id`),
   CONSTRAINT `inventory_transfers_ibfk_4` FOREIGN KEY (`requested_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `inventory_transfers`
 INSERT INTO `inventory_transfers` (`id`, `transfer_no`, `from_branch_id`, `to_branch_id`, `item_id`, `quantity`, `status`, `requested_by`, `created_at`) VALUES ('1', 'TRF-2026-001', '1', '2', '1', '10.00', 'received', '1', '2026-10-18 15:19:14');
@@ -1916,7 +1916,7 @@ CREATE TABLE `invoices` (
   CONSTRAINT `invoices_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `invoices_ibfk_3` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
   CONSTRAINT `invoices_ibfk_4` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `invoices`
 INSERT INTO `invoices` (`id`, `invoice_no`, `order_id`, `branch_id`, `patient_id`, `total_amount`, `discount_amount`, `payable_amount`, `paid_amount`, `due_amount`, `status`, `created_by`, `created_at`, `updated_at`) VALUES ('1', 'INV-2026-00001', '5', '1', '5', '2500.00', '0.00', '2500.00', '0.00', '2500.00', 'unpaid', '1', '2026-10-11 12:34:14', '2026-10-11 12:34:14');
@@ -1954,7 +1954,7 @@ CREATE TABLE `lab_reports` (
   CONSTRAINT `lab_reports_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `lab_reports_ibfk_3` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
   CONSTRAINT `lab_reports_ibfk_4` FOREIGN KEY (`approved_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `lab_reports`
 INSERT INTO `lab_reports` (`id`, `report_no`, `order_id`, `branch_id`, `patient_id`, `status`, `approved_by`, `approved_at`, `version`, `pdf_watermark`, `created_at`) VALUES ('1', 'REP-2026-00841', '1', '1', '1', 'approved', '1', '2026-10-10 18:31:34', '1', 'final', '2026-10-05 18:31:34');
@@ -1994,7 +1994,7 @@ CREATE TABLE `lab_results` (
   CONSTRAINT `lab_results_ibfk_3` FOREIGN KEY (`test_id`) REFERENCES `diagnostic_tests` (`id`),
   CONSTRAINT `lab_results_ibfk_4` FOREIGN KEY (`entered_by`) REFERENCES `users` (`id`),
   CONSTRAINT `lab_results_ibfk_5` FOREIGN KEY (`verified_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `lab_results`
 INSERT INTO `lab_results` (`id`, `order_id`, `order_item_id`, `test_id`, `result_value`, `result_flag`, `reference_range_text`, `comments`, `entered_by`, `entered_at`, `verified_by`, `verified_at`, `status`) VALUES ('1', '1', '1', '1', '126.5', 'high', '70.0 - 99.0 mg/dL', 'Fasting Blood Sugar elevated. Consistent with diabetic profile.', '1', '2026-10-05 18:31:34', '1', '2026-10-10 18:31:34', 'approved');
@@ -2031,7 +2031,7 @@ CREATE TABLE `leave_requests` (
   PRIMARY KEY (`id`),
   KEY `employee_id` (`employee_id`),
   CONSTRAINT `leave_requests_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `hr_employees` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `leave_requests`
 INSERT INTO `leave_requests` (`id`, `employee_id`, `leave_type`, `start_date`, `end_date`, `total_days`, `reason`, `status`, `created_at`) VALUES ('1', '3', 'annual', '2026-10-25', '2026-10-28', '4', 'Annual family pilgrimage visit', 'approved', '2026-10-20 11:27:01');
@@ -2053,7 +2053,7 @@ CREATE TABLE `login_logs` (
   KEY `idx_login_email_time` (`email_attempt`,`occurred_at`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `login_logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `login_logs`
 INSERT INTO `login_logs` (`id`, `user_id`, `email_attempt`, `successful`, `ip_address`, `user_agent`, `occurred_at`) VALUES ('19', '1', 'admin@cognovait.com', '0', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0', '2026-10-10 14:21:53');
@@ -2248,7 +2248,7 @@ CREATE TABLE `measurement_units` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `medical_specializations`
 DROP TABLE IF EXISTS `medical_specializations`;
@@ -2291,7 +2291,7 @@ CREATE TABLE `methodologies` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `microbiology_cultures`
 DROP TABLE IF EXISTS `microbiology_cultures`;
@@ -2313,7 +2313,7 @@ CREATE TABLE `microbiology_cultures` (
   CONSTRAINT `microbiology_cultures_ibfk_1` FOREIGN KEY (`order_item_id`) REFERENCES `diagnostic_order_items` (`id`),
   CONSTRAINT `microbiology_cultures_ibfk_2` FOREIGN KEY (`sample_collection_id`) REFERENCES `sample_collections` (`id`),
   CONSTRAINT `microbiology_cultures_ibfk_3` FOREIGN KEY (`reported_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `microbiology_cultures`
 INSERT INTO `microbiology_cultures` (`id`, `order_item_id`, `sample_collection_id`, `specimen_quality`, `gram_stain_findings`, `growth_status`, `isolated_organism`, `colony_count`, `reported_by`, `created_at`) VALUES ('1', '11', '11', 'Adequate Midstream Urine Specimen', 'Moderate Gram-negative bacilli observed with 15-20 Pus cells/HPF', 'growth_observed', 'Escherichia coli (Significant Growth)', '>10^5 CFU/mL', '1', '2026-10-11 17:23:12');
@@ -2337,7 +2337,7 @@ CREATE TABLE `notification_logs` (
   PRIMARY KEY (`id`),
   KEY `patient_id` (`patient_id`),
   CONSTRAINT `notification_logs_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `notification_logs`
 INSERT INTO `notification_logs` (`id`, `patient_id`, `channel`, `template_key`, `recipient`, `language`, `content`, `status`, `provider_response`, `created_at`, `sent_at`) VALUES ('1', '1', 'sms', 'report_ready', '01711-000001', 'bn', '??????????? ?????????? ???????: ????? ???????????? ??????? ???????? ??????? ?????? ??????? ???? ??????? ???? ????? ?????', 'sent', 'HTTP 200 OK - Sent via SMS Gateway', '2026-10-21 10:47:17', '2026-10-21 10:48:17');
@@ -2368,7 +2368,7 @@ CREATE TABLE `number_sequences` (
   UNIQUE KEY `uq_number_type_branch` (`document_type`,`branch_id`),
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `number_sequences_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `number_sequences`
 INSERT INTO `number_sequences` (`id`, `document_type`, `branch_id`, `prefix`, `padding`, `reset_period`, `period_key`, `next_value`, `active`) VALUES ('1', 'report', '1', 'REP-', '5', 'year', '2026', '5', '1');
@@ -2397,7 +2397,7 @@ CREATE TABLE `organizations` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `organizations`
 INSERT INTO `organizations` (`id`, `name`, `short_name`, `facility_identifier`, `phone`, `email`, `address`, `active`, `created_at`, `updated_at`) VALUES ('1', 'Cognova Diagnostic Center', 'CDC', 'CDC-DHK', NULL, NULL, 'Dhaka, Bangladesh', '1', '2026-09-28 19:30:57', '2026-09-28 19:30:57');
@@ -2411,7 +2411,7 @@ CREATE TABLE `package_items` (
   KEY `test_id` (`test_id`),
   CONSTRAINT `package_items_ibfk_1` FOREIGN KEY (`package_id`) REFERENCES `packages` (`id`),
   CONSTRAINT `package_items_ibfk_2` FOREIGN KEY (`test_id`) REFERENCES `diagnostic_tests` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `packages`
 DROP TABLE IF EXISTS `packages`;
@@ -2425,7 +2425,7 @@ CREATE TABLE `packages` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `pacs_studies`
 DROP TABLE IF EXISTS `pacs_studies`;
@@ -2442,7 +2442,7 @@ CREATE TABLE `pacs_studies` (
   UNIQUE KEY `study_instance_uid` (`study_instance_uid`),
   KEY `radiology_order_id` (`radiology_order_id`),
   CONSTRAINT `pacs_studies_ibfk_1` FOREIGN KEY (`radiology_order_id`) REFERENCES `radiology_orders` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `pacs_studies`
 INSERT INTO `pacs_studies` (`id`, `radiology_order_id`, `study_instance_uid`, `dicom_patient_id`, `modality`, `viewer_url`, `status`, `created_at`) VALUES ('1', '1', '1.2.840.113619.2.55.3.2819216.20261011.0001', 'MRN-2026-00101', 'xray', '/index.php?page=pacs_viewer&study_uid=1.2.840.113619.2.55.3.2819216.20261011.0001', 'archived', '2026-10-11 18:21:57');
@@ -2471,7 +2471,7 @@ CREATE TABLE `pathology_accessions` (
   KEY `pathologist_id` (`pathologist_id`),
   CONSTRAINT `pathology_accessions_ibfk_1` FOREIGN KEY (`order_item_id`) REFERENCES `diagnostic_order_items` (`id`),
   CONSTRAINT `pathology_accessions_ibfk_2` FOREIGN KEY (`pathologist_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `pathology_accessions`
 INSERT INTO `pathology_accessions` (`id`, `accession_no`, `order_item_id`, `gross_description`, `microscopic_description`, `diagnosis`, `comments`, `pathologist_id`, `status`, `created_at`, `updated_at`) VALUES ('1', 'BIO-2026-0041', '17', 'Received single liquid-based cytology vial containing cervical brush specimen in 20mL PreservCyt fixative.', 'Smears show adequate cellularity consisting of superficial and intermediate squamous cells along with endocervical cells. No atypical squamous or glandular cells seen. Background shows lactobacilli with mild inflammation.', 'Negative for Intraepithelial Lesion or Malignancy (NILM), Bethesda System 2014. Mild nonspecific reactive cellular changes.', 'Routine follow-up screening recommended after 3 years.', '1', 'approved', '2026-10-11 17:23:12', '2026-10-11 17:23:12');
@@ -2547,7 +2547,7 @@ CREATE TABLE `patient_feedback` (
   CONSTRAINT `patient_feedback_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
   CONSTRAINT `patient_feedback_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `diagnostic_orders` (`id`),
   CONSTRAINT `patient_feedback_ibfk_3` FOREIGN KEY (`resolved_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `patient_feedback`
 INSERT INTO `patient_feedback` (`id`, `patient_id`, `order_id`, `category`, `rating`, `comments`, `status`, `resolved_by`, `created_at`) VALUES ('1', '1', '1', 'wait_time', '5', 'Extremely prompt service! Digital token display system made the process very smooth.', 'resolved', '1', '2026-10-20 15:44:03');
@@ -2575,7 +2575,7 @@ CREATE TABLE `patient_merge_requests` (
   CONSTRAINT `patient_merge_requests_ibfk_2` FOREIGN KEY (`duplicate_patient_id`) REFERENCES `patients` (`id`),
   CONSTRAINT `patient_merge_requests_ibfk_3` FOREIGN KEY (`requested_by`) REFERENCES `users` (`id`),
   CONSTRAINT `patient_merge_requests_ibfk_4` FOREIGN KEY (`approval_request_id`) REFERENCES `approval_requests` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `patient_portal_accounts`
 DROP TABLE IF EXISTS `patient_portal_accounts`;
@@ -2591,7 +2591,7 @@ CREATE TABLE `patient_portal_accounts` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `patient_id` (`patient_id`),
   CONSTRAINT `patient_portal_accounts_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `patient_portal_accounts`
 INSERT INTO `patient_portal_accounts` (`id`, `patient_id`, `mobile`, `otp_code`, `otp_expires_at`, `auth_token`, `last_login_at`, `created_at`) VALUES ('1', '1', '01711-000001', '123456', NULL, '0d3a575dd85faa836c67acb608445dec', '2026-10-10 17:53:29', '2026-10-10 17:53:29');
@@ -2632,7 +2632,7 @@ CREATE TABLE `patients` (
   KEY `corporate_client_id` (`corporate_client_id`),
   CONSTRAINT `patients_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `patients_ibfk_2` FOREIGN KEY (`corporate_client_id`) REFERENCES `corporate_clients` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `patients`
 INSERT INTO `patients` (`id`, `mrn`, `branch_id`, `category`, `name`, `gender`, `dob`, `blood_group`, `mobile`, `alternate_mobile`, `email`, `address`, `emergency_contact_name`, `emergency_contact_phone`, `occupation`, `nid_passport`, `corporate_client_id`, `wallet_balance`, `loyalty_points`, `active`, `created_at`, `updated_at`) VALUES ('1', 'DOC-2026-00001', '1', 'doctor_prescribed', 'Nasir Uddin', 'male', '1972-04-12', 'B+', '01711-000001', NULL, 'nasir.uddin@gmail.com', 'House 12, Road 5, Dhanmondi, Dhaka', NULL, NULL, 'Business', NULL, NULL, '750.00', '180', '1', '2026-10-10 17:53:29', '2026-10-21 16:35:59');
@@ -2669,7 +2669,7 @@ CREATE TABLE `payment_methods` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `payment_methods`
 INSERT INTO `payment_methods` (`id`, `code`, `name`, `kind`, `active`, `created_at`, `updated_at`) VALUES ('1', 'CASH', 'Hand Cash Payment (Counter Desk)', 'cash', '1', '2026-10-11 16:11:00', '2026-10-11 16:11:00');
@@ -2706,7 +2706,7 @@ CREATE TABLE `payments` (
   CONSTRAINT `payments_ibfk_3` FOREIGN KEY (`counter_id`) REFERENCES `counters` (`id`),
   CONSTRAINT `payments_ibfk_4` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_methods` (`id`),
   CONSTRAINT `payments_ibfk_5` FOREIGN KEY (`received_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `payments`
 INSERT INTO `payments` (`id`, `receipt_no`, `invoice_id`, `branch_id`, `counter_id`, `payment_method_id`, `amount`, `reference_no`, `remarks`, `received_by`, `created_at`) VALUES ('1', 'REC-2026-00001', '8', '1', NULL, '2', '2500.00', 'TXN-1DC933D2', NULL, '1', '2026-10-11 16:20:09');
@@ -2734,7 +2734,7 @@ CREATE TABLE `payrolls` (
   PRIMARY KEY (`id`),
   KEY `employee_id` (`employee_id`),
   CONSTRAINT `payrolls_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `hr_employees` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `payrolls`
 INSERT INTO `payrolls` (`id`, `payroll_period`, `employee_id`, `basic_salary`, `house_rent`, `medical_allowance`, `allowances`, `provident_fund`, `tax_deduction`, `deductions`, `net_salary`, `payment_method`, `transaction_ref`, `status`, `paid_at`, `created_at`) VALUES ('1', 'October 2026', '1', '95000.00', '38000.00', '3000.00', '43500.00', '7600.00', '2500.00', '10100.00', '128400.00', 'Bank Transfer (City Bank)', 'SLP-202610-0001', 'paid', '2026-10-20 11:27:02', '2026-10-20 11:27:02');
@@ -2756,7 +2756,7 @@ CREATE TABLE `permissions` (
   `description` varchar(190) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `permissions`
 INSERT INTO `permissions` (`id`, `code`, `description`) VALUES ('1', 'dashboard.view', 'View Dashboard');
@@ -3470,7 +3470,7 @@ CREATE TABLE `purchase_orders` (
   CONSTRAINT `purchase_orders_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`),
   CONSTRAINT `purchase_orders_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `purchase_orders_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `purchase_orders`
 INSERT INTO `purchase_orders` (`id`, `po_no`, `supplier_id`, `branch_id`, `total_amount`, `status`, `created_by`, `created_at`, `po_date`, `delivery_date`, `notes`, `payment_status`, `tds_amount`, `vds_amount`) VALUES ('1', 'PO-2026-001', '1', '1', '145000.00', 'received', '1', '2026-10-20 14:54:04', '2026-10-15', '2026-10-25', 'Monthly automated biochemistry reagent pack (Cobas C311)', 'paid', '7250.00', '10875.00');
@@ -3498,7 +3498,7 @@ CREATE TABLE `purchase_requisitions` (
   CONSTRAINT `purchase_requisitions_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `purchase_requisitions_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`),
   CONSTRAINT `purchase_requisitions_ibfk_3` FOREIGN KEY (`requested_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `quality_controls`
 DROP TABLE IF EXISTS `quality_controls`;
@@ -3514,7 +3514,7 @@ CREATE TABLE `quality_controls` (
   PRIMARY KEY (`id`),
   KEY `test_id` (`test_id`),
   CONSTRAINT `quality_controls_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `diagnostic_tests` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `quality_controls`
 INSERT INTO `quality_controls` (`id`, `section_name`, `test_id`, `qc_level`, `target_value`, `observed_value`, `status`, `logged_at`) VALUES ('1', 'Biochemistry', '1', 'level_1', '100.0000', '100.8000', 'passed', '2026-10-21 10:12:17');
@@ -3556,7 +3556,7 @@ CREATE TABLE `queue_tokens` (
   CONSTRAINT `queue_tokens_ibfk_3` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`),
   CONSTRAINT `queue_tokens_ibfk_4` FOREIGN KEY (`order_id`) REFERENCES `diagnostic_orders` (`id`),
   CONSTRAINT `queue_tokens_ibfk_5` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `queue_tokens`
 INSERT INTO `queue_tokens` (`id`, `token_no`, `branch_id`, `service_area`, `counter_id`, `patient_id`, `order_id`, `appointment_id`, `priority`, `status`, `called_at`, `served_at`, `completed_at`, `created_at`) VALUES ('1', 'DOC-001', '1', 'doctor_chamber', NULL, '3', NULL, '1', 'normal', 'waiting', NULL, NULL, NULL, '2026-10-11 12:23:20');
@@ -3602,7 +3602,7 @@ CREATE TABLE `radiology_orders` (
   CONSTRAINT `radiology_orders_ibfk_4` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
   CONSTRAINT `radiology_orders_ibfk_5` FOREIGN KEY (`technician_id`) REFERENCES `users` (`id`),
   CONSTRAINT `radiology_orders_ibfk_6` FOREIGN KEY (`radiologist_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `radiology_orders`
 INSERT INTO `radiology_orders` (`id`, `accession_no`, `order_id`, `order_item_id`, `branch_id`, `modality`, `room_id`, `technician_id`, `radiologist_id`, `status`, `critical_finding`, `clinical_history`, `created_at`, `updated_at`) VALUES ('1', 'RAD-2026-0001', '1', '1', '1', 'xray', '1', '1', '1', 'reported', '0', 'Chronic cough for 3 weeks, low grade fever, evaluate for pulmonary pathology (P/A View).', '2026-10-11 18:21:57', '2026-10-11 18:21:57');
@@ -3633,7 +3633,7 @@ CREATE TABLE `radiology_reports` (
   CONSTRAINT `radiology_reports_ibfk_1` FOREIGN KEY (`radiology_order_id`) REFERENCES `radiology_orders` (`id`),
   CONSTRAINT `radiology_reports_ibfk_2` FOREIGN KEY (`radiologist_id`) REFERENCES `users` (`id`),
   CONSTRAINT `radiology_reports_ibfk_3` FOREIGN KEY (`template_id`) REFERENCES `radiology_templates` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `radiology_reports`
 INSERT INTO `radiology_reports` (`id`, `report_no`, `radiology_order_id`, `radiologist_id`, `template_id`, `findings`, `impression`, `critical_finding_flag`, `status`, `created_at`, `updated_at`) VALUES ('1', 'RAD-RPT-0001', '1', '1', '1', 'CHEST DIGITAL RADIOGRAPHY (PA VIEW):\nLung fields are well aerated and completely clear of any active parenchymal consolidation, cavitation or infiltrative lesion. Costophrenic and cardiophrenic sulci are sharp. Normal cardiac size with cardiothoracic ratio < 0.50. Bony thorax and soft tissue contours are intact and symmetric.', 'Normal digital chest radiograph (PA View). No active tuberculosis or pulmonary lesion identified.', '0', 'finalized', '2026-10-11 18:21:57', '2026-10-11 18:21:57');
@@ -3653,7 +3653,7 @@ CREATE TABLE `radiology_templates` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `radiology_templates`
 INSERT INTO `radiology_templates` (`id`, `code`, `name`, `modality`, `body_part`, `template_text`, `active`, `created_at`) VALUES ('1', 'TPL-CXR', 'Chest X-Ray (PA View) Normal Macro', 'xray', 'Chest', 'CHEST X-RAY PA VIEW:\n- Trachea is central in position.\n- Both lung fields are clear with normal vascular markings.\n- Costophrenic and cardiophrenic angles are sharp and clear.\n- Cardiac silhouette and mediastinal contours are within normal anatomical limits.\n- Diaphragmatic domes are normal in contour.\n- Visualized bony thorax and soft tissue structures appear unremarkable.\n\nIMPRESSION: Normal Chest Radiograph. No active cardiopulmonary lesion.', '1', '2026-10-11 18:21:57');
@@ -3673,7 +3673,7 @@ CREATE TABLE `reason_codes` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `referral_settlements`
 DROP TABLE IF EXISTS `referral_settlements`;
@@ -3691,7 +3691,7 @@ CREATE TABLE `referral_settlements` (
   UNIQUE KEY `settlement_no` (`settlement_no`),
   KEY `doctor_id` (`doctor_id`),
   CONSTRAINT `referral_settlements_ibfk_1` FOREIGN KEY (`doctor_id`) REFERENCES `referrers` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `referrer_profiles`
 DROP TABLE IF EXISTS `referrer_profiles`;
@@ -3709,7 +3709,7 @@ CREATE TABLE `referrer_profiles` (
   KEY `relationship_manager_id` (`relationship_manager_id`),
   CONSTRAINT `referrer_profiles_ibfk_1` FOREIGN KEY (`referrer_id`) REFERENCES `referrers` (`id`),
   CONSTRAINT `referrer_profiles_ibfk_2` FOREIGN KEY (`relationship_manager_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `referrer_visits`
 DROP TABLE IF EXISTS `referrer_visits`;
@@ -3726,7 +3726,7 @@ CREATE TABLE `referrer_visits` (
   KEY `visited_by` (`visited_by`),
   CONSTRAINT `referrer_visits_ibfk_1` FOREIGN KEY (`referrer_id`) REFERENCES `referrers` (`id`),
   CONSTRAINT `referrer_visits_ibfk_2` FOREIGN KEY (`visited_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `referrer_visits`
 INSERT INTO `referrer_visits` (`id`, `referrer_id`, `visited_by`, `visit_date`, `discussion_notes`, `follow_up_action`, `created_at`) VALUES ('1', '1', '1', '2026-10-18', 'Visited Prof. Dr. M. Rahman at Chamber. Shared updated Endocrinology and HbA1c test panel brochures. Requested fast-track reporting for diabetic patients.', 'Deliver customized test requisition pads next Monday.', '2026-10-20 15:19:14');
@@ -3747,7 +3747,7 @@ CREATE TABLE `referrers` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `referrers`
 INSERT INTO `referrers` (`id`, `code`, `name`, `mobile`, `type`, `active`, `created_at`, `updated_at`) VALUES ('1', 'REF-001', 'Prof. Dr. M. Rahman', '01711-223344', 'doctor', '1', '2026-10-20 13:12:43', '2026-10-20 13:12:43');
@@ -3777,7 +3777,7 @@ CREATE TABLE `refunds` (
   CONSTRAINT `refunds_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `refunds_ibfk_3` FOREIGN KEY (`refunded_by`) REFERENCES `users` (`id`),
   CONSTRAINT `refunds_ibfk_4` FOREIGN KEY (`approval_request_id`) REFERENCES `approval_requests` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `report_catalog_views`
 DROP TABLE IF EXISTS `report_catalog_views`;
@@ -3792,7 +3792,7 @@ CREATE TABLE `report_catalog_views` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `report_key` (`report_key`)
-) ENGINE=InnoDB AUTO_INCREMENT=1135 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1135 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `report_catalog_views`
 INSERT INTO `report_catalog_views` (`id`, `report_key`, `title`, `report_group`, `description`, `query_definition`, `export_formats`, `created_at`) VALUES ('1', 'rpt_exec_daily_mtd_ytd', 'Executive Revenue & Patient Volume Summary (Daily/MTD/YTD)', 'front_desk', 'Real-time & historic revenue, patient counts, average bill amounts, and collection breakdown.', 'SELECT DATE(created_at) AS invoice_date, COUNT(DISTINCT patient_id) AS patients, SUM(total_amount) AS total_rev, SUM(paid_amount) AS paid, SUM(due_amount) AS dues FROM invoices GROUP BY DATE(created_at)', 'PDF,Excel,CSV', '2026-09-28 19:31:52');
@@ -3827,7 +3827,7 @@ CREATE TABLE `report_deliveries` (
   KEY `acted_by` (`acted_by`),
   CONSTRAINT `report_deliveries_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `diagnostic_orders` (`id`),
   CONSTRAINT `report_deliveries_ibfk_2` FOREIGN KEY (`acted_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `report_deliveries`
 INSERT INTO `report_deliveries` (`id`, `order_id`, `report_type`, `report_id`, `action_type`, `acted_by`, `acted_at`, `recipient_email`, `qr_verification_hash`) VALUES ('1', '1', 'lab', '1', 'print', '1', '2026-10-10 18:31:34', NULL, 'c3240adb2e69833d1e38ea14035bfc5a73530be0eb6604f752684891f66964de');
@@ -3847,7 +3847,7 @@ CREATE TABLE `report_templates` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `role_permissions`
 DROP TABLE IF EXISTS `role_permissions`;
@@ -3858,7 +3858,7 @@ CREATE TABLE `role_permissions` (
   KEY `permission_id` (`permission_id`),
   CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `role_permissions`
 INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES ('1', '1');
@@ -3938,7 +3938,7 @@ CREATE TABLE `roles` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `roles`
 INSERT INTO `roles` (`id`, `code`, `name`, `active`) VALUES ('1', 'super_admin', 'System Administrator', '1');
@@ -3964,7 +3964,7 @@ CREATE TABLE `rooms` (
   KEY `service_unit_id` (`service_unit_id`),
   CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `rooms_ibfk_2` FOREIGN KEY (`service_unit_id`) REFERENCES `service_units` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `rooms`
 INSERT INTO `rooms` (`id`, `branch_id`, `service_unit_id`, `code`, `name`, `active`, `created_at`, `updated_at`) VALUES ('1', '1', NULL, 'RAD-XR1', 'Digital X-Ray Suite (Room 101)', '1', '2026-10-11 18:21:44', '2026-10-11 18:21:44');
@@ -4002,7 +4002,7 @@ CREATE TABLE `sample_collections` (
   CONSTRAINT `sample_collections_ibfk_4` FOREIGN KEY (`sample_type_id`) REFERENCES `sample_types` (`id`),
   CONSTRAINT `sample_collections_ibfk_5` FOREIGN KEY (`container_id`) REFERENCES `containers` (`id`),
   CONSTRAINT `sample_collections_ibfk_6` FOREIGN KEY (`collected_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `sample_collections`
 INSERT INTO `sample_collections` (`id`, `barcode`, `order_id`, `order_item_id`, `branch_id`, `sample_type_id`, `container_id`, `status`, `collected_by`, `collected_at`, `rejection_reason`, `created_at`) VALUES ('1', 'BAR-261010-1256', '1', '1', '1', NULL, NULL, 'collected', '1', '2026-10-05 18:31:34', NULL, '2026-10-05 18:31:34');
@@ -4034,7 +4034,7 @@ CREATE TABLE `sample_types` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `schema_migrations`
 DROP TABLE IF EXISTS `schema_migrations`;
@@ -4042,7 +4042,7 @@ CREATE TABLE `schema_migrations` (
   `version` varchar(100) NOT NULL,
   `applied_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `schema_migrations`
 INSERT INTO `schema_migrations` (`version`, `applied_at`) VALUES ('diagnostic_erp', '2026-09-28 19:22:33');
@@ -4063,7 +4063,7 @@ CREATE TABLE `security_backup_logs` (
   UNIQUE KEY `backup_no` (`backup_no`),
   KEY `triggered_by` (`triggered_by`),
   CONSTRAINT `security_backup_logs_ibfk_1` FOREIGN KEY (`triggered_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `service_units`
 DROP TABLE IF EXISTS `service_units`;
@@ -4081,7 +4081,7 @@ CREATE TABLE `service_units` (
   KEY `department_id` (`department_id`),
   CONSTRAINT `service_units_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`),
   CONSTRAINT `service_units_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `suppliers`
 DROP TABLE IF EXISTS `suppliers`;
@@ -4100,7 +4100,7 @@ CREATE TABLE `suppliers` (
   `payment_terms` varchar(50) DEFAULT 'Net 30 Days',
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `suppliers`
 INSERT INTO `suppliers` (`id`, `code`, `name`, `phone`, `email`, `active`, `created_at`, `updated_at`, `category`, `trade_license`, `tin_bin`, `payment_terms`) VALUES ('1', 'SUPP-001', 'Roche Diagnostics Bangladesh Ltd', '02-9887766', 'orders.bd@roche.com', '1', '2026-10-20 13:11:16', '2026-10-20 14:54:04', 'Biochemistry & Immunology Reagents', 'TL-DHK-48201', 'BIN-002914820-0101', 'Net 30 Days');
@@ -4123,7 +4123,7 @@ CREATE TABLE `tax_rules` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `test_categories`
 DROP TABLE IF EXISTS `test_categories`;
@@ -4164,7 +4164,7 @@ CREATE TABLE `test_panel_items` (
   KEY `test_id` (`test_id`),
   CONSTRAINT `test_panel_items_ibfk_1` FOREIGN KEY (`panel_id`) REFERENCES `test_panels` (`id`),
   CONSTRAINT `test_panel_items_ibfk_2` FOREIGN KEY (`test_id`) REFERENCES `diagnostic_tests` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `test_panels`
 DROP TABLE IF EXISTS `test_panels`;
@@ -4177,7 +4177,7 @@ CREATE TABLE `test_panels` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `test_reference_ranges`
 DROP TABLE IF EXISTS `test_reference_ranges`;
@@ -4202,7 +4202,7 @@ CREATE TABLE `test_reference_ranges` (
   KEY `method_id` (`method_id`),
   CONSTRAINT `test_reference_ranges_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `diagnostic_tests` (`id`),
   CONSTRAINT `test_reference_ranges_ibfk_2` FOREIGN KEY (`method_id`) REFERENCES `methodologies` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `user_branches`
 DROP TABLE IF EXISTS `user_branches`;
@@ -4213,7 +4213,7 @@ CREATE TABLE `user_branches` (
   KEY `branch_id` (`branch_id`),
   CONSTRAINT `user_branches_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `user_branches_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `user_branches`
 INSERT INTO `user_branches` (`user_id`, `branch_id`) VALUES ('1', '1');
@@ -4231,7 +4231,7 @@ CREATE TABLE `user_departments` (
   KEY `department_id` (`department_id`),
   CONSTRAINT `user_departments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `user_departments_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table structure for table `user_roles`
 DROP TABLE IF EXISTS `user_roles`;
@@ -4242,7 +4242,7 @@ CREATE TABLE `user_roles` (
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `user_roles`
 INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES ('1', '1');
@@ -4265,7 +4265,7 @@ CREATE TABLE `users` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table `users`
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `active`, `password_changed_at`, `last_login_at`, `created_at`, `updated_at`) VALUES ('1', 'System Administrator', 'admin@cognovait.com', '$2y$10$uCdOhB0.uvD9vLAMV7fy/.nQnq0yAi94wg9KLJYr03x7UtlDyovhq', '1', '2026-09-28 19:30:57', '2026-10-21 10:42:26', '2026-09-28 19:30:57', '2026-10-21 10:42:26');
